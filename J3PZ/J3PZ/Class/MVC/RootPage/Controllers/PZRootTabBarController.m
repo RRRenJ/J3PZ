@@ -29,8 +29,14 @@
 }
 //给TabBar添加视图控制器
 -(void)addViewController{
-    NSArray * VCNameArray = @[@"PZOccupationViewController",@"PZInstectViewController",@"PZMyViewController"];
-    NSArray * VCTitleArray = @[@"配装",@"预览",@"我"];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PZOccupationViewController *pzoVC = [storyboard instantiateViewControllerWithIdentifier:@"PZOccupationViewController"];
+    pzoVC.title = @"配装";
+    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:pzoVC];
+    [self addChildViewController:navi];
+    
+    NSArray * VCNameArray = @[@"PZInstectViewController",@"PZMyViewController"];
+    NSArray * VCTitleArray = @[@"预览",@"我"];
     for(NSString * VCName in VCNameArray){
         Class VCClass = NSClassFromString(VCName);
         NSInteger index = [VCNameArray indexOfObject:VCName];
@@ -41,6 +47,7 @@
         [self addChildViewController:naviVC];
         
     }
+    
 }
 
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RPSlidingMenu.h"
 
-@interface PZOccupationViewController : UIViewController
+@interface PZOccupationViewController : RPSlidingMenuViewController
 
 @end
