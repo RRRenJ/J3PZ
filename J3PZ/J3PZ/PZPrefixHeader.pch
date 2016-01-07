@@ -1,0 +1,28 @@
+//
+//  PZPrefixHeader.pch
+//  J3PZ
+//
+//  Created by 千锋 on 16/1/4.
+//  Copyright © 2016年 1111111111. All rights reserved.
+//
+
+#ifndef PZPrefixHeader_pch
+#define PZPrefixHeader_pch
+
+#import <RESideMenu/RESideMenu.h>
+//屏幕尺寸
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//装备图标
+#define PZEquipIconURL @"http://icons.j3pz.com/%@.png"
+//对应心法某个部位的装备
+#define PZEquipURL @"http://j3pz.com/api/getEquipList.php?pos=%@&menpai=%@"
+//装备属性
+#define PZEquipDetailURL @"http://j3pz.com/api/getEquip.php?q=%@"
+//装备附魔
+#define PZEnhanceURL @"http://www.j3pz.com/api/getEnhanceList.php?pos=%@&menpai=%@"
+//附魔详情
+#define PZEnhanceDetailURL @"http://www.j3pz.com/api/getEnhance.php?q=%@"
+
+#endif /* PZPrefixHeader_pch */

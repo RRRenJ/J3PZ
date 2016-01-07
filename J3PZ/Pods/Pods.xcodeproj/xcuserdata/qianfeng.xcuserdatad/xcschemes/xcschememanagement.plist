@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PopMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RESideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XHRealTimeBlur.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0C96DC4BCA18E70CB37A45115217522A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>606B7B6AFA808F1C3B31E45D4D79CDCE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6DC0394E90C4E57238CF7FDF88E70414</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB475E89AE01C860863BDD7961669A72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E10743048CBDCFD1517EFD0A9228811E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
