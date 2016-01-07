@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RPSlidingMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>XHRealTimeBlur.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -31,32 +36,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>0C96DC4BCA18E70CB37A45115217522A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>606B7B6AFA808F1C3B31E45D4D79CDCE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6DC0394E90C4E57238CF7FDF88E70414</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DB475E89AE01C860863BDD7961669A72</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E10743048CBDCFD1517EFD0A9228811E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
