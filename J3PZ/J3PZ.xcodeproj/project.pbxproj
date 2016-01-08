@@ -34,6 +34,8 @@
 		BC8DB6861C3A8BFC0069D2DB /* PZEquipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8DB6841C3A8BFC0069D2DB /* PZEquipCell.xib */; };
 		BC8DB6891C3A945B0069D2DB /* PZEquipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8DB6881C3A945B0069D2DB /* PZEquipModel.m */; };
 		BCB30C661C3E8048008D29D0 /* PZEnhanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB30C651C3E8048008D29D0 /* PZEnhanceModel.m */; };
+		BCF77EB61C3FD32200E254DC /* PZEnhanceDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF77EB51C3FD32200E254DC /* PZEnhanceDetailController.m */; settings = {ASSET_TAGS = (); }; };
+		BCF77EB91C3FD39D00E254DC /* PZEnhanceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF77EB81C3FD39D00E254DC /* PZEnhanceDetailModel.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,10 @@
 		BC8DB6881C3A945B0069D2DB /* PZEquipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEquipModel.m; sourceTree = "<group>"; };
 		BCB30C641C3E8048008D29D0 /* PZEnhanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEnhanceModel.h; sourceTree = "<group>"; };
 		BCB30C651C3E8048008D29D0 /* PZEnhanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEnhanceModel.m; sourceTree = "<group>"; };
+		BCF77EB41C3FD32200E254DC /* PZEnhanceDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEnhanceDetailController.h; sourceTree = "<group>"; };
+		BCF77EB51C3FD32200E254DC /* PZEnhanceDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEnhanceDetailController.m; sourceTree = "<group>"; };
+		BCF77EB71C3FD39D00E254DC /* PZEnhanceDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEnhanceDetailModel.h; sourceTree = "<group>"; };
+		BCF77EB81C3FD39D00E254DC /* PZEnhanceDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEnhanceDetailModel.m; sourceTree = "<group>"; };
 		CC9A129C31F13250F21033FD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -414,6 +420,8 @@
 			children = (
 				BC8552551C3CAD1C0019A07E /* PZEquipDetailModel.h */,
 				BC8552561C3CAD1C0019A07E /* PZEquipDetailModel.m */,
+				BCF77EB71C3FD39D00E254DC /* PZEnhanceDetailModel.h */,
+				BCF77EB81C3FD39D00E254DC /* PZEnhanceDetailModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,6 +433,8 @@
 				BC86C8991C3BB73300EE8F21 /* PZEquipListDropControl.m */,
 				BC8552581C3CB07C0019A07E /* PZEquipDetailControl.h */,
 				BC8552591C3CB07C0019A07E /* PZEquipDetailControl.m */,
+				BCF77EB41C3FD32200E254DC /* PZEnhanceDetailController.h */,
+				BCF77EB51C3FD32200E254DC /* PZEnhanceDetailController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -705,6 +715,7 @@
 				BC8DB6661C3A67F20069D2DB /* PZHomeViewController.m in Sources */,
 				BC8DB65A1C3A4D5D0069D2DB /* PZRootTabBarController.m in Sources */,
 				BC8DB6851C3A8BFC0069D2DB /* PZEquipCell.m in Sources */,
+				BCF77EB91C3FD39D00E254DC /* PZEnhanceDetailModel.m in Sources */,
 				BC8DB6631C3A4E810069D2DB /* PZMyViewController.m in Sources */,
 				BC85525A1C3CB07C0019A07E /* PZEquipDetailControl.m in Sources */,
 				BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */,
@@ -712,6 +723,7 @@
 				BC86C89A1C3BB73300EE8F21 /* PZEquipListDropControl.m in Sources */,
 				BC86C8971C3B992400EE8F21 /* PZNetworkingManager.m in Sources */,
 				BC8DB6121C3A443A0069D2DB /* AppDelegate.m in Sources */,
+				BCF77EB61C3FD32200E254DC /* PZEnhanceDetailController.m in Sources */,
 				BC8DB60F1C3A443A0069D2DB /* main.m in Sources */,
 				BC8DB6601C3A4E600069D2DB /* PZInstectViewController.m in Sources */,
 			);

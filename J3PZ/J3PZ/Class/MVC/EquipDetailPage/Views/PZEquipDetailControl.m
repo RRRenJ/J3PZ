@@ -28,9 +28,8 @@
 
 @implementation PZEquipDetailControl
 
--(instancetype)initWithFrame:(CGRect)frame andEquipDetailModel:(PZEquipDetailModel *)model{
-    if (self = [super init]) {
-        self.model = model ;
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
         self.tableViewFrame = frame;
         [self requestData];
         [self createDataArray];
@@ -137,6 +136,7 @@
     if(self.model.huajing){
         [_dataArray addObject:[NSString stringWithFormat:@"化劲等级提高%@ (+%d)",self.model.huajing,(int)([self.model.huajing intValue] * proportion)]];
     }
+//    [_dataArray addObject:[NSString stringWithFormat:@"",self.model.]]
     
     
     

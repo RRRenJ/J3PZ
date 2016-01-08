@@ -1,16 +1,14 @@
 //
-//  PZEquipDetailControl.h
+//  PZEnhanceDetailController.h
 //  J3PZ
 //
-//  Created by 千锋 on 16/1/6.
+//  Created by 千锋 on 16/1/8.
 //  Copyright © 2016年 1111111111. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "PZEquipDetailModel.h"
 
-
-@interface PZEquipDetailControl : UIControl
+@interface PZEnhanceDetailController : UIControl
 
 -(void)show;
 
