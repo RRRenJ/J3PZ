@@ -14,9 +14,9 @@
 
 @interface PZEquipDetailViewController ()<sendDataArray>
 
-@property(nonatomic,strong)PZEquipDetailControl * equipDetail;
-@property(nonatomic,strong)PZEquipListDropControl * equipList;
-@property(nonatomic,strong)PZEquipListDropControl * enhanceList;
+@property(nonatomic,strong)PZEquipDetailControl * equipDetailDropControl;
+@property(nonatomic,strong)PZEquipListDropControl * equipListDropControl;
+@property(nonatomic,strong)PZEquipListDropControl * enhanceListDropControl;
 @property(nonatomic,strong)PZNetworkingManager * manager;
 @property(nonatomic,strong)NSArray * enhanceListArray;
 @property(nonatomic,strong)NSArray * equipListArray;
@@ -40,11 +40,11 @@
     equipVC.delegate = self;
     
     //装备属性弹窗
-    self.equipDetail = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(50, 300, 150, 0) andEquipDetailModel:nil];
+    self.equipDetailDropControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(50, 300, 150, 0) andEquipDetailModel:nil];
     //选择装备弹窗
-    self.equipList = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 200, 100, 100) inView:nil dataSource:_equipListArray];
+    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 200, 100, 100) inView:nil dataSource:_equipListArray];
     //选择附魔弹窗
-    self.enhanceList = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 250, 100, 100) inView:nil dataSource:_enhanceListArray];
+    self.enhanceListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 250, 100, 100) inView:nil dataSource:_enhanceListArray];
 }
 -(void)sendEquipListArray:(NSArray *)equipListArray{
     _equipListArray = equipListArray;
