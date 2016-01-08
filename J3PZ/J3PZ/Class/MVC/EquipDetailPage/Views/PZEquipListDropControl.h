@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol sendEquipListID <NSObject>
+
+-(void)sendEquipListID:(NSString *)equipListID;
+
+@end
+
+
+
+
 @interface PZEquipListDropControl : UIControl
 
+@property(nonatomic,strong)id<sendEquipListID>delegate;
+
 -(void)show;
-
-
-
 -(void)hide;
 
 -(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view dataSource:(NSArray *)dataArray;

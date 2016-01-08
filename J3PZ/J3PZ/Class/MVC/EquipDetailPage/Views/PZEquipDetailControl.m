@@ -7,10 +7,12 @@
 //
 
 #import "PZEquipDetailControl.h"
-
+#import "PZNetworkingManager.h"
+#import "PZEquipListDropControl.h"
+#import "PZEquipDetailModel.h"
 #define CELL_HIGHT 10
 
-@interface PZEquipDetailControl ()<UITableViewDataSource,UITableViewDelegate>
+@interface PZEquipDetailControl ()<UITableViewDataSource,UITableViewDelegate,sendEquipListID>
 {
     float proportion;
 }
@@ -18,6 +20,8 @@
 @property(nonatomic,strong)PZEquipDetailModel * model;
 @property(nonatomic,strong)NSMutableArray * dataArray;
 @property(nonatomic,assign)CGRect tableViewFrame;
+@property(nonatomic,copy)NSString * equipListID;
+@property(nonatomic,strong)PZNetworkingManager * manager;
 
 @end
 
@@ -28,6 +32,7 @@
     if (self = [super init]) {
         self.model = model ;
         self.tableViewFrame = frame;
+        [self requestData];
         [self createDataArray];
         [self createTableView];
     }
@@ -162,5 +167,25 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return CELL_HIGHT;
 }
+
+#pragma mark - requestData
+-(void)requestData{
+    PZEquipListDropControl * equipListControl = [[PZEquipListDropControl alloc]init];
+    equipListControl.delegate = self;
+    NSString * enquipDetailPath = [NSString stringWithFormat:PZEquipDetailURL,self.equipListID];
+    [self.manager GET:enquipDetailPath success:^(NSURLResponse *response, NSData *data) {
+        NSDictionary * responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        self.model = [[PZEquipDetailModel alloc]init];
+        [self.model setValuesForKeysWithDictionary:responseDict];
+        
+    } failure:^(NSURLRequest *response, NSError *error) {
+        
+    }];
+}
+-(void)sendEquipListID:(NSString *)equipListID{
+    self.equipListID = equipListID;
+}
+
+
 
 @end

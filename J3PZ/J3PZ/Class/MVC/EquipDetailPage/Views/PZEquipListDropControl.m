@@ -98,6 +98,10 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    PZEquipModel * model = _dataArray[indexPath.row];
+    if ([self.delegate respondsToSelector:@selector(sendEquipListID:)]) {
+        [self.delegate sendEquipListID:model.Id];
+    }
     [self hide];
 }
 

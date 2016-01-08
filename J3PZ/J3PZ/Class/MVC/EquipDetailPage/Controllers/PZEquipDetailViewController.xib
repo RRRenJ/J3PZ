@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PZEquipDetailViewController">
             <connections>
+                <outlet property="enhanceListButton" destination="koO-ih-936" id="QZT-CK-fR3"/>
+                <outlet property="equipListButton" destination="8EZ-jc-Qxy" id="q4H-cO-odV"/>
+                <outlet property="stone1" destination="VNr-Xx-qv4" id="BdD-yt-WnQ"/>
+                <outlet property="stone2" destination="b4c-Lr-FbB" id="O4s-zV-PfG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,6 +25,9 @@
                     <state key="normal" title="选择装备">
                         <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="equipListButtonClicked:" destination="-1" eventType="touchUpInside" id="8Ro-7l-iXt"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koO-ih-936">
                     <rect key="frame" x="36" y="189" width="156" height="28"/>
@@ -27,18 +35,27 @@
                     <state key="normal" title="选择附魔">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="enhanceListButtonClicked:" destination="-1" eventType="touchUpInside" id="P3G-lZ-Szj"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNr-Xx-qv4">
                     <rect key="frame" x="278" y="116" width="30" height="30"/>
                     <state key="normal" title="镶嵌">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="stone1Clicked:" destination="-1" eventType="touchUpInside" id="2kz-o4-JTL"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-Lr-FbB">
                     <rect key="frame" x="278" y="189" width="30" height="30"/>
                     <state key="normal" title="镶嵌">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="stone2Clicked:" destination="-1" eventType="touchUpInside" id="jx1-yL-HIr"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

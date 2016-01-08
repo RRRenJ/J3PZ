@@ -20,6 +20,14 @@
 @property(nonatomic,strong)PZNetworkingManager * manager;
 @property(nonatomic,strong)NSArray * enhanceListArray;
 @property(nonatomic,strong)NSArray * equipListArray;
+@property (weak, nonatomic) IBOutlet UIButton *equipListButton;
+- (IBAction)equipListButtonClicked:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *enhanceListButton;
+- (IBAction)enhanceListButtonClicked:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *stone1;
+- (IBAction)stone1Clicked:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *stone2;
+- (IBAction)stone2Clicked:(UIButton *)sender;
 
 @end
 
@@ -53,15 +61,19 @@
     _enhanceListArray = enhanceListArray;
 }
 
-#pragma mark - data
-//数据请求
--(void)requestData{
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+- (IBAction)equipListButtonClicked:(UIButton *)sender {
+    [_equipListDropControl show];
+}
+- (IBAction)enhanceListButtonClicked:(UIButton *)sender {
+    [_enhanceListDropControl show];
+}
+- (IBAction)stone1Clicked:(UIButton *)sender {
+}
+- (IBAction)stone2Clicked:(UIButton *)sender {
 }
 @end
