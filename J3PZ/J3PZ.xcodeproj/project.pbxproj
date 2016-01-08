@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		115D9E775F0741A1698E4202 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC6E11939F29C22021BE65 /* libPods.a */; };
 		BC6079A21C3A9738009C9B83 /* PZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6079A11C3A9738009C9B83 /* PZBaseModel.m */; };
-		BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552511C3CA5E40019A07E /* PZEquipDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		BC8552541C3CA5E40019A07E /* PZEquipDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8552521C3CA5E40019A07E /* PZEquipDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		BC8552571C3CAD1C0019A07E /* PZEquipDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552561C3CAD1C0019A07E /* PZEquipDetailModel.m */; settings = {ASSET_TAGS = (); }; };
-		BC85525A1C3CB07C0019A07E /* PZEquipDetailControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552591C3CB07C0019A07E /* PZEquipDetailControl.m */; settings = {ASSET_TAGS = (); }; };
-		BC85525E1C3D30120019A07E /* PZOccupationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC85525C1C3D30120019A07E /* PZOccupationCell.m */; settings = {ASSET_TAGS = (); }; };
-		BC85525F1C3D30120019A07E /* PZOccupationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC85525D1C3D30120019A07E /* PZOccupationCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552511C3CA5E40019A07E /* PZEquipDetailViewController.m */; };
+		BC8552541C3CA5E40019A07E /* PZEquipDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8552521C3CA5E40019A07E /* PZEquipDetailViewController.xib */; };
+		BC8552571C3CAD1C0019A07E /* PZEquipDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552561C3CAD1C0019A07E /* PZEquipDetailModel.m */; };
+		BC85525A1C3CB07C0019A07E /* PZEquipDetailControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552591C3CB07C0019A07E /* PZEquipDetailControl.m */; };
 		BC86C8971C3B992400EE8F21 /* PZNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC86C8961C3B992400EE8F21 /* PZNetworkingManager.m */; };
 		BC86C89A1C3BB73300EE8F21 /* PZEquipListDropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BC86C8991C3BB73300EE8F21 /* PZEquipListDropControl.m */; };
 		BC8DB60F1C3A443A0069D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8DB60E1C3A443A0069D2DB /* main.m */; };
@@ -35,7 +33,7 @@
 		BC8DB6851C3A8BFC0069D2DB /* PZEquipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8DB6831C3A8BFC0069D2DB /* PZEquipCell.m */; };
 		BC8DB6861C3A8BFC0069D2DB /* PZEquipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8DB6841C3A8BFC0069D2DB /* PZEquipCell.xib */; };
 		BC8DB6891C3A945B0069D2DB /* PZEquipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8DB6881C3A945B0069D2DB /* PZEquipModel.m */; };
-		BCB30C661C3E8048008D29D0 /* PZEnhanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB30C651C3E8048008D29D0 /* PZEnhanceModel.m */; settings = {ASSET_TAGS = (); }; };
+		BCB30C661C3E8048008D29D0 /* PZEnhanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB30C651C3E8048008D29D0 /* PZEnhanceModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +65,6 @@
 		BC8552561C3CAD1C0019A07E /* PZEquipDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEquipDetailModel.m; sourceTree = "<group>"; };
 		BC8552581C3CB07C0019A07E /* PZEquipDetailControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEquipDetailControl.h; sourceTree = "<group>"; };
 		BC8552591C3CB07C0019A07E /* PZEquipDetailControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEquipDetailControl.m; sourceTree = "<group>"; };
-		BC85525B1C3D30120019A07E /* PZOccupationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZOccupationCell.h; sourceTree = "<group>"; };
-		BC85525C1C3D30120019A07E /* PZOccupationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZOccupationCell.m; sourceTree = "<group>"; };
-		BC85525D1C3D30120019A07E /* PZOccupationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PZOccupationCell.xib; sourceTree = "<group>"; };
 		BC86C8951C3B992400EE8F21 /* PZNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZNetworkingManager.h; sourceTree = "<group>"; };
 		BC86C8961C3B992400EE8F21 /* PZNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZNetworkingManager.m; sourceTree = "<group>"; };
 		BC86C8981C3BB73300EE8F21 /* PZEquipListDropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEquipListDropControl.h; sourceTree = "<group>"; };
@@ -504,9 +499,6 @@
 		BC8DB6731C3A73650069D2DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC85525B1C3D30120019A07E /* PZOccupationCell.h */,
-				BC85525C1C3D30120019A07E /* PZOccupationCell.m */,
-				BC85525D1C3D30120019A07E /* PZOccupationCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,7 +618,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC85525F1C3D30120019A07E /* PZOccupationCell.xib in Resources */,
 				BC8DB6201C3A443A0069D2DB /* LaunchScreen.storyboard in Resources */,
 				BC8552541C3CA5E40019A07E /* PZEquipDetailViewController.xib in Resources */,
 				BC8DB6861C3A8BFC0069D2DB /* PZEquipCell.xib in Resources */,
@@ -716,7 +707,6 @@
 				BC8DB6851C3A8BFC0069D2DB /* PZEquipCell.m in Sources */,
 				BC8DB6631C3A4E810069D2DB /* PZMyViewController.m in Sources */,
 				BC85525A1C3CB07C0019A07E /* PZEquipDetailControl.m in Sources */,
-				BC85525E1C3D30120019A07E /* PZOccupationCell.m in Sources */,
 				BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */,
 				BC8DB6891C3A945B0069D2DB /* PZEquipModel.m in Sources */,
 				BC86C89A1C3BB73300EE8F21 /* PZEquipListDropControl.m in Sources */,
