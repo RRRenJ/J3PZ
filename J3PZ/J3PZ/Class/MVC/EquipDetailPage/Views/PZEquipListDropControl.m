@@ -102,6 +102,9 @@
     if ([self.delegate respondsToSelector:@selector(sendEquipListID:)]) {
         [self.delegate sendEquipListID:model.Id];
     }
+    if ([self.delegate respondsToSelector:@selector(sendEquipListName:)]) {
+        [self.delegate sendEquipListName:model.name];
+    }
     [self hide];
 }
 

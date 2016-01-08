@@ -12,7 +12,7 @@
 #import "PZEquipDetailModel.h"
 #define CELL_HIGHT 10
 
-@interface PZEquipDetailControl ()<UITableViewDataSource,UITableViewDelegate,sendEquipListID>
+@interface PZEquipDetailControl ()<UITableViewDataSource,UITableViewDelegate,sendModelValue>
 {
     float proportion;
 }
@@ -177,7 +177,9 @@
         NSDictionary * responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.model = [[PZEquipDetailModel alloc]init];
         [self.model setValuesForKeysWithDictionary:responseDict];
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+        });
     } failure:^(NSURLRequest *response, NSError *error) {
         
     }];

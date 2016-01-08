@@ -12,7 +12,7 @@
 #import "PZEquipViewController.h"
 #import "PZNetworkingManager.h"
 
-@interface PZEquipDetailViewController ()<sendDataArray>
+@interface PZEquipDetailViewController ()<sendDataArray,sendModelValue>
 
 @property(nonatomic,strong)PZEquipDetailControl * equipDetailDropControl;
 @property(nonatomic,strong)PZEquipListDropControl * equipListDropControl;
@@ -53,7 +53,15 @@
     self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 200, 100, 100) inView:nil dataSource:_equipListArray];
     //选择附魔弹窗
     self.enhanceListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 250, 100, 100) inView:nil dataSource:_enhanceListArray];
+    PZEquipListDropControl * equipListDropControl = [[PZEquipListDropControl alloc]init];
+    equipListDropControl.delegate =self;
+    //设置按键文字
+    [_equipListButton setTitle:@"请选择装备" forState:UIControlStateNormal];
+    [_enhanceListButton setTitle:@"请选择附魔" forState:UIControlStateNormal];
+    [_stone1 setTitle:@"镶嵌" forState:UIControlStateNormal];
+    [_stone2 setTitle:@"镶嵌" forState:UIControlStateNormal];
 }
+#pragma mark - delegate传值
 -(void)sendEquipListArray:(NSArray *)equipListArray{
     _equipListArray = equipListArray;
 }
@@ -61,11 +69,13 @@
     _enhanceListArray = enhanceListArray;
 }
 
+-(void)sendEquipListName:(NSString *)equipListName{
+    [_equipListButton setTitle:equipListName forState:UIControlStateNormal];
+}
 
 
 
-
-
+#pragma mark - 按键点击事件
 - (IBAction)equipListButtonClicked:(UIButton *)sender {
     [_equipListDropControl show];
 }

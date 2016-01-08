@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol sendEquipListID <NSObject>
+@protocol sendModelValue <NSObject>
 
 -(void)sendEquipListID:(NSString *)equipListID;
-
+-(void)sendEquipListName:(NSString *)equipListName;
 @end
 
 
@@ -19,7 +19,7 @@
 
 @interface PZEquipListDropControl : UIControl
 
-@property(nonatomic,strong)id<sendEquipListID>delegate;
+@property(nonatomic,strong)id<sendModelValue>delegate;
 
 -(void)show;
 -(void)hide;
