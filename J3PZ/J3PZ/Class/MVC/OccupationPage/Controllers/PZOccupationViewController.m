@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"门派选择";
+//    self.navigationItem.title = @"门派选择";
     CGSize size = [UIScreen mainScreen].bounds.size;
     self.collectionView.frame = CGRectMake(0, 64, size.width, size.height);
 }
