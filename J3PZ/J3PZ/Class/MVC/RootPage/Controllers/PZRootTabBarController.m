@@ -29,18 +29,18 @@
 }
 //给TabBar添加视图控制器
 -(void)addViewController{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    PZOccupationViewController *pzoVC = [storyboard instantiateViewControllerWithIdentifier:@"PZOccupationViewController"];
-//    pzoVC.title = @"配装";
-//    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:pzoVC];
-//    [self addChildViewController:navi];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PZOccupationViewController *pzoVC = [storyboard instantiateViewControllerWithIdentifier:@"PZOccupationViewController"];
+    pzoVC.title = @"配装";
+    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:pzoVC];
+    [self addChildViewController:navi];
     //测试
     //**
 ////////////////////////////////////////////
-    PZEquipViewController * equipVC = [[PZEquipViewController alloc]init];
-    equipVC.title = @"配装";
-    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:equipVC];
-    [self addChildViewController:navi];
+//    PZEquipViewController * equipVC = [[PZEquipViewController alloc]init];
+//    equipVC.title = @"配装";
+//    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:equipVC];
+//    [self addChildViewController:navi];
     //**
 ///////////////////////////////////////////////
     

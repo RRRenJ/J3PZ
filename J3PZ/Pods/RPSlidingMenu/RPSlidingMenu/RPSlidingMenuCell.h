@@ -45,7 +45,8 @@ extern const CGFloat RPSlidingCellCollapsedHeight;
 /**
  The bottommost centered label that is used for a description for the cell.  The label fades in as it approaches feature height
  */
-@property (strong, nonatomic) UILabel *detailTextLabel;
+@property (strong, nonatomic) UIButton *XFdetail_one;
+@property (strong, nonatomic) UIButton *XFdetail_two;
 
 /**
  The background image view of the cell.  Set this to supply an image that is centered in the cell. It is covered by a black view that has varying alpha depending on the cell size.

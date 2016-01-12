@@ -61,7 +61,7 @@ static NSString *RPSlidingCellIdentifier = @"RPSlidingCellIdentifier";
     self.collectionView.collectionViewLayout = [[RPSlidingMenuLayout alloc] initWithDelegate:self];
 
     [self.collectionView registerClass:[RPSlidingMenuCell class] forCellWithReuseIdentifier:RPSlidingCellIdentifier];
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
     
     // don't have it scroll content below nav bar and status bar
     if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
@@ -128,6 +128,4 @@ static NSString *RPSlidingCellIdentifier = @"RPSlidingCellIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self slidingMenu:self didSelectItemAtRow:indexPath.row];
 }
-
-
 @end
