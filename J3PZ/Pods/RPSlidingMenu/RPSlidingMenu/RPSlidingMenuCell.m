@@ -73,13 +73,26 @@ const CGFloat RPSlidingMenuFeaturedImageCoverAlpha = 0.2f;
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat startY = self.textLabel.frame.origin.y + self.textLabel.frame.size.height - 40.0f;
-    self.detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(RPSlidingCellDetailTextPadding, startY, screenRect.size.width - (RPSlidingCellDetailTextPadding * 2), self.contentView.frame.size.height - startY)];
-    self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.detailTextLabel.numberOfLines = 0;
-    self.detailTextLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    self.detailTextLabel.textColor = [UIColor whiteColor];
-    self.detailTextLabel.textAlignment = NSTextAlignmentCenter;
-    [self.contentView addSubview:self.detailTextLabel];
+    
+    CGFloat X = RPSlidingCellDetailTextPadding;
+    CGFloat Y = startY;
+    CGFloat W = (screenRect.size.width - (RPSlidingCellDetailTextPadding * 2)) / 2;
+    CGFloat H = self.contentView.frame.size.height - startY;
+    self.XFdetail_one = [[UIButton alloc]initWithFrame:CGRectMake(X, Y, W, H)];
+    self.XFdetail_two = [[UIButton alloc]initWithFrame:CGRectMake(X+W, Y, W, H)];
+    
+    self.XFdetail_one.titleLabel.font = [UIFont systemFontOfSize:20.0f];
+    self.XFdetail_one.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.XFdetail_one.backgroundColor = [UIColor lightGrayColor];
+    self.XFdetail_one.layer.cornerRadius = 10;
+    
+    self.XFdetail_two.titleLabel.font = [UIFont systemFontOfSize:20.0f];
+    self.XFdetail_two.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.XFdetail_two.backgroundColor = [UIColor lightGrayColor];
+    self.XFdetail_two.layer.cornerRadius = 10;
+
+    [self.contentView addSubview:self.XFdetail_one];
+    [self.contentView addSubview:self.XFdetail_two];
 }
 
 - (void)setupImageView {
@@ -125,11 +138,18 @@ const CGFloat RPSlidingMenuFeaturedImageCoverAlpha = 0.2f;
     self.textLabel.center = self.contentView.center;
 
     // keep detail just under text label
-    self.detailTextLabel.center = CGPointMake(self.center.x, self.textLabel.center.y + 40.0f);
-
-    // its convenient to set the alpha of the fading controls to the percent of growth value
-    self.detailTextLabel.alpha = percentOfGrowth;
+    self.XFdetail_one.center = CGPointMake(self.center.x-CGRectGetWidth(self.XFdetail_one.frame) / 2, self.textLabel.center.y + 40.0f);
+    self.XFdetail_two.center = CGPointMake(self.center.x+CGRectGetWidth(self.XFdetail_one.frame) / 2, self.textLabel.center.y + 40.0f);
     
+    if ([self.textLabel.text isEqualToString:@"丐帮"]) {
+        self.XFdetail_one.center = CGPointMake(self.center.x, self.textLabel.center.y + 40.0f);
+        self.XFdetail_two.center = CGPointMake(1000, self.textLabel.center.y + 40.0f);
+    }
+    // its convenient to set the alpha of the fading controls to the percent of growth value
+    [self.XFdetail_one setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5f]];
+    self.XFdetail_one.alpha = percentOfGrowth;
+    [self.XFdetail_two setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5]];
+    self.XFdetail_two.alpha = percentOfGrowth;
     // when full size, alpha of imageCover should be 20%, when collapsed should be 90%
     self.imageCover.alpha = RPSlidingMenuNormalImageCoverAlpha - (percentOfGrowth * (RPSlidingMenuNormalImageCoverAlpha - RPSlidingMenuFeaturedImageCoverAlpha));
     

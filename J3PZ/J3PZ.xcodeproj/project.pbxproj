@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		115D9E775F0741A1698E4202 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC6E11939F29C22021BE65 /* libPods.a */; };
 		BC6079A21C3A9738009C9B83 /* PZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6079A11C3A9738009C9B83 /* PZBaseModel.m */; };
-		BC6088DA1C44DEF100E8C70F /* 1600.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088D91C44DEF100E8C70F /* 1600.png */; settings = {ASSET_TAGS = (); }; };
-		BC6088DC1C44FB9B00E8C70F /* popover_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */; settings = {ASSET_TAGS = (); }; };
+		BC6088DA1C44DEF100E8C70F /* 1600.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088D91C44DEF100E8C70F /* 1600.png */; };
+		BC6088DC1C44FB9B00E8C70F /* popover_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */; };
 		BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552511C3CA5E40019A07E /* PZEquipDetailViewController.m */; };
 		BC8552541C3CA5E40019A07E /* PZEquipDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8552521C3CA5E40019A07E /* PZEquipDetailViewController.xib */; };
 		BC8552571C3CAD1C0019A07E /* PZEquipDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552561C3CAD1C0019A07E /* PZEquipDetailModel.m */; };
@@ -36,8 +36,9 @@
 		BC8DB6861C3A8BFC0069D2DB /* PZEquipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8DB6841C3A8BFC0069D2DB /* PZEquipCell.xib */; };
 		BC8DB6891C3A945B0069D2DB /* PZEquipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8DB6881C3A945B0069D2DB /* PZEquipModel.m */; };
 		BCB30C661C3E8048008D29D0 /* PZEnhanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB30C651C3E8048008D29D0 /* PZEnhanceModel.m */; };
-		BCF77EB61C3FD32200E254DC /* PZEnhanceDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF77EB51C3FD32200E254DC /* PZEnhanceDetailController.m */; settings = {ASSET_TAGS = (); }; };
-		BCF77EB91C3FD39D00E254DC /* PZEnhanceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF77EB81C3FD39D00E254DC /* PZEnhanceDetailModel.m */; settings = {ASSET_TAGS = (); }; };
+		BCDBE6791C45256600C532E6 /* CDSideBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDBE6781C45256600C532E6 /* CDSideBarController.m */; };
+		BCF77EB61C3FD32200E254DC /* PZEnhanceDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF77EB51C3FD32200E254DC /* PZEnhanceDetailController.m */; };
+		BCF77EB91C3FD39D00E254DC /* PZEnhanceDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF77EB81C3FD39D00E254DC /* PZEnhanceDetailModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		BC8DB6881C3A945B0069D2DB /* PZEquipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEquipModel.m; sourceTree = "<group>"; };
 		BCB30C641C3E8048008D29D0 /* PZEnhanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEnhanceModel.h; sourceTree = "<group>"; };
 		BCB30C651C3E8048008D29D0 /* PZEnhanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEnhanceModel.m; sourceTree = "<group>"; };
+		BCDBE6771C45256600C532E6 /* CDSideBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSideBarController.h; sourceTree = "<group>"; };
+		BCDBE6781C45256600C532E6 /* CDSideBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSideBarController.m; sourceTree = "<group>"; };
 		BCF77EB41C3FD32200E254DC /* PZEnhanceDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEnhanceDetailController.h; sourceTree = "<group>"; };
 		BCF77EB51C3FD32200E254DC /* PZEnhanceDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEnhanceDetailController.m; sourceTree = "<group>"; };
 		BCF77EB71C3FD39D00E254DC /* PZEnhanceDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEnhanceDetailModel.h; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 		BC8DB6711C3A73650069D2DB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCDBE6771C45256600C532E6 /* CDSideBarController.h */,
+				BCDBE6781C45256600C532E6 /* CDSideBarController.m */,
 				BC8DB67A1C3A752F0069D2DB /* PZOccupationViewController.h */,
 				BC8DB67B1C3A752F0069D2DB /* PZOccupationViewController.m */,
 			);
@@ -714,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCDBE6791C45256600C532E6 /* CDSideBarController.m in Sources */,
 				BC8DB67C1C3A752F0069D2DB /* PZOccupationViewController.m in Sources */,
 				BC8DB61B1C3A443A0069D2DB /* J3PZ.xcdatamodeld in Sources */,
 				BC8552571C3CAD1C0019A07E /* PZEquipDetailModel.m in Sources */,
