@@ -11,7 +11,7 @@
 #import "PZInstectViewController.h"
 #import "PZMyViewController.h"
 #import "PZOccupationViewController.h"
-
+#import "PZEquipViewController.h"
 @interface PZRootTabBarController ()
 
 @end
@@ -29,11 +29,20 @@
 }
 //给TabBar添加视图控制器
 -(void)addViewController{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PZOccupationViewController *pzoVC = [storyboard instantiateViewControllerWithIdentifier:@"PZOccupationViewController"];
-    pzoVC.title = @"配装";
-    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:pzoVC];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    PZOccupationViewController *pzoVC = [storyboard instantiateViewControllerWithIdentifier:@"PZOccupationViewController"];
+//    pzoVC.title = @"配装";
+//    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:pzoVC];
+//    [self addChildViewController:navi];
+    //测试
+    //**
+////////////////////////////////////////////
+    PZEquipViewController * equipVC = [[PZEquipViewController alloc]init];
+    equipVC.title = @"配装";
+    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:equipVC];
     [self addChildViewController:navi];
+    //**
+///////////////////////////////////////////////
     
     NSArray * VCNameArray = @[@"PZInstectViewController",@"PZMyViewController"];
     NSArray * VCTitleArray = @[@"预览",@"我"];
@@ -45,8 +54,8 @@
         VC.title = VCTitleArray[index];
         UINavigationController * naviVC = [[UINavigationController alloc]initWithRootViewController:VC];
         [self addChildViewController:naviVC];
-        
     }
+    
     
 }
 

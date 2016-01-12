@@ -10,6 +10,11 @@
 
 @interface PZEquipDetailViewController : UIViewController
 
+@property(nonatomic,strong)NSString * xinfa;
+@property(nonatomic,strong)NSString * pos;
+
+-(void)createUI;
+
 
 
 @end

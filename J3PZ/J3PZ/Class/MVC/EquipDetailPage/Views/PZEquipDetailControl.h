@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PZEquipDetailModel.h"
+
+
+@protocol sendModelIconID <NSObject>
+
+-(void)sendModelIconID:(NSString *)iconID;
+
+@end
 
 
 @interface PZEquipDetailControl : UIControl
 
 -(void)show;
 
--(instancetype)initWithFrame:(CGRect)frame;
+-(instancetype)initWithFrame:(CGRect)frame andView:(UIView *)view;;
+
+@property(nonatomic,weak)id<sendModelIconID>delegate;
 
 @end

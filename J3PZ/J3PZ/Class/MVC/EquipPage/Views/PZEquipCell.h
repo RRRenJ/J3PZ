@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PZEquipModel.h"
 @interface PZEquipCell : UITableViewCell
 //装备部位
 @property (weak, nonatomic) IBOutlet UILabel *posName;
@@ -18,7 +18,8 @@
 //五彩石
 @property (weak, nonatomic) IBOutlet UIImageView *stone1;
 @property (weak, nonatomic) IBOutlet UIImageView *stone2;
-
+@property(nonatomic,strong)PZEquipModel * model;
+@property (weak, nonatomic) IBOutlet UIImageView *equipIcon;
 
 
 @end

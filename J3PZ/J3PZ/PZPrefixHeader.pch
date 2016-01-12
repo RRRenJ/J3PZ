@@ -9,7 +9,7 @@
 #ifndef PZPrefixHeader_pch
 #define PZPrefixHeader_pch
 
-#import <RESideMenu/RESideMenu.h>
+
 //屏幕尺寸
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height

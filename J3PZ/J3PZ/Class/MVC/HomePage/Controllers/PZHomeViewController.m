@@ -20,23 +20,19 @@
 
 @implementation PZHomeViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
--(void)addLeftAndRightViewControllers{
-    
-    _equipVC = [[PZEquipViewController alloc]init];
-    _equipDetailVC = [[PZEquipDetailViewController alloc]init];
-    
-    self.rightMenuViewController = _equipDetailVC;
-    self.contentViewController = _equipVC;
-}
+
 
 
 @end

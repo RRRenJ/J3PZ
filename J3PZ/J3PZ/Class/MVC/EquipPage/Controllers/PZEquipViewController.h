@@ -8,16 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol sendDataArray <NSObject>
 
--(void)sendEquipListArray:(NSArray *)equipListArray;
--(void)sendEnhanceListArray:(NSArray *)enhanceListArray;
-
-@end
 
 @interface PZEquipViewController : UIViewController
 
-@property(nonatomic,weak)id<sendDataArray>delegate;
+
 
 
 @end

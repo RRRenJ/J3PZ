@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MMDrawerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,12 +19,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RESideMenu.xcscheme</key>
+		<key>RPSlidingMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RPSlidingMenu.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>073C1A772AC6155E73AAE788BD01EF4A</key>
+		<key>1FBEC067554064E7490DD4DB0BF6C928</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3A6CC34FFC25A361D81A80264FA77EB2</key>
+		<key>53EEBFB06D2854F7AE38AF3DBB4BC005</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E7D915ED059B0577C2407EA8461A85E</key>
+		<key>54CC3776C72624D8CE96AF00A5F1B2FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63494BA2AA04B0481B50146363AE2E5F</key>
+		<key>550F7EEAEEA17E3F92C873912E23B01C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67FC5ECACDFE7EC8357E7C4A5CA4F3EB</key>
+		<key>6589C2DC9B18A92C27F941684F586374</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4826FC9C73B6D43CAAACB5BD579A9B6</key>
+		<key>9C4F658BE42D4A35C9C9D8F79CFCDDBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F02C685A901DA8C31CE63830A4282B3B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

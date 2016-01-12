@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PZRootTabBarController.h"
+#import "PZHomeViewController.h"
 @interface AppDelegate ()
 
 @end

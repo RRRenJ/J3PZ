@@ -10,7 +10,7 @@
 //请求成功的Block
 typedef void(^RequestSuccess)(NSURLResponse * response,NSData * data);
 //请求失败的Block
-typedef void(^RequestFailure)(NSURLRequest * response, NSError * error);
+typedef void(^RequestFailure)(NSURLResponse * response, NSError * error);
 
 @interface PZNetworkingManager : NSObject
 

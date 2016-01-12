@@ -12,24 +12,31 @@
 #import "PZEquipDetailViewController.h"
 #import "PZEquipModel.h"
 #import "PZEnhanceModel.h"
+#import "PZEquipListDropControl.h"
 
-@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate,sendModelValue>
 
     
 @property(nonatomic,copy)NSString * equipIndex;;
 @property(nonatomic,strong)UITableView * tableView;
-@property(nonatomic,strong)NSMutableArray * equipListArray;
-@property(nonatomic,strong)NSMutableArray * enhanceListArray;
+@property(nonatomic,strong)NSString * equipIconID;
 @property(nonatomic,strong)PZNetworkingManager * manager;
-@property(nonatomic,copy)NSString * xinfa;
+
 
 @end
 
 @implementation PZEquipViewController
+-(PZNetworkingManager *)manager{
+    if (!_manager) {
+        _manager = [PZNetworkingManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self createTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +46,7 @@
 #pragma mark - createUI
 -(void)createTableView{
 
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64,SCREEN_WIDTH ,SCREEN_HEIGHT - 64)];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH ,SCREEN_HEIGHT)];
     [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -60,51 +67,28 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    _equipIndex = [NSString stringWithFormat:@"%@",indexPath];
-    [self requestData];
-    if ([self.delegate respondsToSelector:@selector(sendEquipListArray:)]) {
-        [self.delegate sendEquipListArray:[_equipListArray copy]];
-    }
-    if ([self.delegate respondsToSelector:@selector(sendEnhanceListArray:)]) {
-        [self.delegate sendEnhanceListArray:[_enhanceListArray copy]];
-    }
+    _equipIndex = [NSString stringWithFormat:@"%ld",indexPath.row];
     
-    [self presentRightMenuViewController:self.sideMenuViewController.rightMenuViewController];
+    PZEquipDetailViewController * equipDetailVC = [[PZEquipDetailViewController alloc]init];
+    equipDetailVC.xinfa = @"yijin";
+    equipDetailVC.pos = _equipIndex;
+    
+    [self.navigationController pushViewController:equipDetailVC animated:YES];
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+    
+}
 
 #pragma mark - requestData
 -(void)requestData{
-    NSString * equipListPath = [[NSString alloc]initWithFormat:PZEquipURL,_equipIndex ,_xinfa];
-    [self.manager GET:equipListPath success:^(NSURLResponse *response, NSData *data) {
-        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        if (!_equipListArray) {
-            _equipListArray = [NSMutableArray array];
-        }
-        for (NSDictionary * equip in responseArray) {
-            PZEquipModel * model = [[PZEquipModel alloc]init];
-            [model setValuesForKeysWithDictionary:equip];
-            [_equipListArray addObject:model];
-        }
-    } failure:^(NSURLRequest *response, NSError *error) {
-        
-    }];
-    NSString * enhanceListPath = [[NSString alloc]initWithFormat:PZEnhanceURL,_equipIndex,_xinfa];
-    [self.manager GET:enhanceListPath success:^(NSURLResponse *response, NSData *data) {
-        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        if (!_enhanceListArray) {
-            _enhanceListArray = [NSMutableArray array];
-        }
-        for (NSDictionary * equip in responseArray) {
-            PZEnhanceModel * model = [[PZEnhanceModel alloc]init];
-            [model setValuesForKeysWithDictionary:equip];
-            [_enhanceListArray addObject:model];
-        }
-    } failure:^(NSURLRequest *response, NSError *error) {
-        
-    }];
     
+    
+   
+  
 }
-
+-(void)sendEquipListID:(NSString *)equipListID{
+    self.equipIconID = equipListID;
+}
 
 @end

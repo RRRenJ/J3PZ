@@ -1,4 +1,5 @@
 platform:ios,'8.0'
 pod 'PopMenu'
-pod 'RESideMenu'
 pod 'RPSlidingMenu'
+pod 'MMDrawerController'
+pod 'SDWebImage'

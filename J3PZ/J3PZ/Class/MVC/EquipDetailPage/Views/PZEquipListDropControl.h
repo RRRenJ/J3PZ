@@ -19,11 +19,13 @@
 
 @interface PZEquipListDropControl : UIControl
 
-@property(nonatomic,strong)id<sendModelValue>delegate;
+@property(nonatomic,weak)id<sendModelValue>delegate;
 
 -(void)show;
 -(void)hide;
 
--(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view dataSource:(NSArray *)dataArray;
+-(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andXinfa:(NSString *)xinfa andPos:(NSString *)pos;
+
+
 
 @end

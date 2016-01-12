@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RESideMenu/RESideMenu.h>
+#import <MMDrawerController/MMDrawerController.h>
 
-@interface PZHomeViewController : RESideMenu
+@interface PZHomeViewController : UIViewController
 
 @end

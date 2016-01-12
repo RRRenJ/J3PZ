@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6F6BDDAAA7C0BA120ABCFE82'
+               BlueprintIdentifier = '6E2F284CCCF4ADD1D4BCDBB4'
                BlueprintName = 'RPSlidingMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRPSlidingMenu.a'>

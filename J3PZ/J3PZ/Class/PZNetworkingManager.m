@@ -29,19 +29,20 @@
 //请求数据
 -(void)GET:(NSString *)url success:(RequestSuccess)success failure:(RequestFailure)failure{
     
+    //创建请求对象
     NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSURLSessionDataTask * task = [_urlSession dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+    NSURLSessionDataTask * task = [_urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        //判断是否成功
         if (!error) {
             if (success) {
-                success(response, data);
+                success(response,data);
             }else{
                 if (failure) {
-                    failure(response, error);
+                    failure(response,error);
                 }
             }
         }
     }];
     [task resume];
- 
 }
 @end
