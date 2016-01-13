@@ -603,6 +603,7 @@
 				TargetAttributes = {
 					BC8DB6091C3A443A0069D2DB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = ZHL2ZXZUJ8;
 					};
 					BC8DB6251C3A443A0069D2DB = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -879,11 +880,12 @@
 			baseConfigurationReference = 6788B05BB88E2F9F35C44316 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/J3PZ/PZPrefixHeader.pch";
 				INFOPLIST_FILE = J3PZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-505.J3PZ";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RRRenJ.J3PZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -893,11 +895,12 @@
 			baseConfigurationReference = CC9A129C31F13250F21033FD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/J3PZ/PZPrefixHeader.pch";
 				INFOPLIST_FILE = J3PZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-505.J3PZ";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RRRenJ.J3PZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

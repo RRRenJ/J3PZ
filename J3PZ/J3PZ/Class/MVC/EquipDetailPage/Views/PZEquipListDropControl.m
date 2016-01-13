@@ -132,8 +132,10 @@
     if ([self.delegate respondsToSelector:@selector(sendEquipListID:)]) {
         [self.delegate sendEquipListID:model.Id];
     }
-//    PZEquipDetailViewController * equipDetailVC = [[PZEquipDetailViewController alloc]init];
-    
+    if ([self.delegate respondsToSelector:@selector(sendEquipListName:)]) {
+        [self.delegate sendEquipListName:model.name];
+    }
+
     [self hide];
     
 }

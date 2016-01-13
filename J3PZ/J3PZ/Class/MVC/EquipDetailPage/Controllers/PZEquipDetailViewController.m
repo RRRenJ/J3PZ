@@ -54,8 +54,7 @@
     
     //装备属性弹窗
     self.equipDetailDropControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(50, 400, 250, 100) andView:self.view];
-    //选择装备弹窗
-    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 130, 180, 300) inView:self.view andXinfa:_xinfa andPos:_pos];
+    
     //选择附魔弹窗
 //    self.enhanceListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 250, 100, 100) inView:nil];
     
@@ -72,15 +71,17 @@
 #pragma mark - delegate传值
 
 //修改按键文字
-//-(void)sendEquipListName:(NSString *)equipListName{
-//    [_equipListButton setTitle:equipListName forState:UIControlStateNormal];
-//}
+-(void)sendEquipListName:(NSString *)equipListName{
+    [_equipListButton setTitle:equipListName forState:UIControlStateNormal];
+}
 
 
 
 #pragma mark - 按键点击事件
 - (IBAction)equipListButtonClicked:(UIButton *)sender {
-    
+    //选择装备弹窗
+    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 130, 180, 300) inView:self.view andXinfa:_xinfa andPos:_pos];
+    self.equipListDropControl.delegate = self;
     [_equipListDropControl show];
     [_equipDetailDropControl show];
     

@@ -20,7 +20,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[PZRootTabBarController alloc]init];
-    
+    self.window.clipsToBounds = YES;
     [self.window makeKeyAndVisible];
     return YES;
 }
