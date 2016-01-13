@@ -11,7 +11,7 @@
 
 
 @interface PZEquipViewController : UIViewController
-
+@property (nonatomic,copy) NSString *xfDetail;
 
 
 

@@ -57,12 +57,16 @@
     NSArray *xfDetail = xfArray[row];
     [slidingMenuCell.XFdetail_one setTitle:xfDetail[0] forState:UIControlStateNormal];
     [slidingMenuCell.XFdetail_two setTitle:xfDetail[1] forState:UIControlStateNormal];
-    [slidingMenuCell.XFdetail_one addTarget:self action:@selector(clicked) forControlEvents:UIControlEventTouchUpInside];
-    [slidingMenuCell.XFdetail_two addTarget:self action:@selector(clicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    [slidingMenuCell.XFdetail_one addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
+    [slidingMenuCell.XFdetail_two addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)clicked{
+-(void)clicked:(UIButton *)sender{
+    NSDictionary *XFdic = @{@"相知":@"xiangzhi",@"莫问":@"mowen",@"分山劲":@"fenshan",@"铁骨衣":@"tiegu",@"笑尘诀":@"xiaochen",@"焚影圣诀":@"fenying",@"明尊琉璃体":@"mingzun",@"惊羽诀":@"jingyu",@"天罗诡道":@"tianluo",@"毒经":@"dujing",@"补天诀":@"butian",@"花间游":@"huajian",@"离经易道":@"lijing",@"冰心诀":@"bingxin",@"云裳心经":@"yunshang",@"傲血战意":@"aoxue",@"铁牢律":@"tielao",@"易筋经":@"yijin",@"洗髓经":@"xisui",@"紫霞功":@"zixia",@"太虚剑意":@"taixu",@"问水诀":@"wenshui",@"山居剑意":@"shanju"};
+    NSString *str = [XFdic objectForKey:sender.titleLabel.text];
     PZEquipViewController *PZEquipVC = [[PZEquipViewController alloc]init];
+    PZEquipVC.xfDetail = str;
     [self.navigationController pushViewController:PZEquipVC animated:YES];
 }
 
