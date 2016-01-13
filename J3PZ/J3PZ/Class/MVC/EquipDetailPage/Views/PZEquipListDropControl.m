@@ -20,9 +20,8 @@
 @property(nonatomic,assign)CGRect imageFrame;
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)PZNetworkingManager * manager;
-@property(nonatomic,strong)NSMutableArray * equipListArray;
-@property(nonatomic,strong)NSString * xinfa;
-@property(nonatomic,strong)NSString * pos;
+@property(nonatomic,strong)NSArray * equipListArray;
+
 @end
 
 
@@ -37,24 +36,19 @@
 
 
 
--(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andXinfa:(NSString *)xinfa andPos:(NSString *)pos{
+-(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andDataSource:(NSArray *)dataArray{
     
     if (self = [super init]) {
         self.frame = [UIScreen mainScreen].bounds;
-        self.xinfa = xinfa;
-        self.pos = pos;
         self.sView = view;
         self.imageFrame = frame;
+        _equipListArray = [dataArray copy];
         self.dropImageView = [[UIImageView alloc]init];
         self.dropImageView.frame = frame;
         self.dropImageView.image = [[UIImage imageNamed:@"popover_background"] stretchableImageWithLeftCapWidth:3 topCapHeight:10];
         [self addSubview:self.dropImageView];
         self.dropImageView.userInteractionEnabled = YES;
 
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [self requestData];
-        });
-    
         [self createTableView];
     }
     
@@ -63,7 +57,6 @@
 #pragma mark -设置下拉框的弹出以及收回
 -(void)show{
     [self.sView addSubview:self];
-//    self.userInteractionEnabled = NO;
     //获取尺寸
     CGRect rect = self.imageFrame;
     //高度置为0
@@ -137,29 +130,9 @@
     }
 
     [self hide];
-    
 }
-#pragma mark - requestData
--(void)requestData{
-    NSString * equipListPath = [[NSString alloc]initWithFormat:PZEquipURL,self.pos ,self.xinfa];
-    
-    [self.manager GET:equipListPath success:^(NSURLResponse *response, NSData *data) {
-        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
-        if (!_equipListArray) {
-            _equipListArray = [NSMutableArray array];
-        }
-        for (NSDictionary * equip in responseArray) {
-            PZEquipModel * model = [[PZEquipModel alloc]init];
-            [model setValuesForKeysWithDictionary:equip];
-            [_equipListArray addObject:model];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_tableView reloadData];
-        });
-    } failure:^(NSURLResponse *response, NSError *error) {
-        
-    }];
+//#pragma mark - requestData
+
 //    NSString * enhanceListPath = [[NSString alloc]initWithFormat:PZEnhanceURL,_equipIndex,_xinfa];
 //    [self.manager GET:enhanceListPath success:^(NSURLResponse *response, NSData *data) {
 //        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -174,7 +147,7 @@
 //    } failure:^(NSURLResponse *response, NSError *error) {
 //        
 //    }];
-}
+//}
 
 
 

@@ -24,7 +24,7 @@
 -(void)show;
 -(void)hide;
 
--(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andXinfa:(NSString *)xinfa andPos:(NSString *)pos;
+-(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andDataSource:(NSArray *)dataArray;
 
 
 

@@ -11,15 +11,17 @@
 #import "PZEquipListDropControl.h"
 #import "PZEquipViewController.h"
 #import "PZNetworkingManager.h"
-
+#import "PZEquipModel.h"
+#import "PZEnhanceModel.h"
 @interface PZEquipDetailViewController ()<sendModelValue>
 
 @property(nonatomic,strong)PZEquipDetailControl * equipDetailDropControl;
 @property(nonatomic,strong)PZEquipListDropControl * equipListDropControl;
 @property(nonatomic,strong)PZEquipListDropControl * enhanceListDropControl;
 @property(nonatomic,strong)PZNetworkingManager * manager;
-@property(nonatomic,strong)NSArray * enhanceListArray;
-@property(nonatomic,strong)NSArray * equipListArray;
+@property(nonatomic,strong)NSMutableArray * enhanceListArray;
+@property(nonatomic,strong)NSMutableArray * equipListArray;
+
 @property (weak, nonatomic) IBOutlet UIButton *equipListButton;
 - (IBAction)equipListButtonClicked:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *enhanceListButton;
@@ -43,6 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createUI];
+    [self requestData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,12 +78,47 @@
     [_equipListButton setTitle:equipListName forState:UIControlStateNormal];
 }
 
+#pragma mark - requestData
+-(void)requestData{
+    NSString * equipListPath = [[NSString alloc]initWithFormat:PZEquipURL,self.pos ,self.xinfa];
+    
+    [self.manager GET:equipListPath success:^(NSURLResponse *response, NSData *data) {
+        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        if (!_equipListArray) {
+            _equipListArray = [NSMutableArray array];
+        }
+        for (NSDictionary * equip in responseArray) {
+            PZEquipModel * model = [[PZEquipModel alloc]init];
+            [model setValuesForKeysWithDictionary:equip];
+            [_equipListArray addObject:model];
+        }
+    } failure:^(NSURLResponse *response, NSError *error) {
+        
+    }];
+    NSString * enhanceListPath = [[NSString alloc]initWithFormat:PZEnhanceURL,self.pos,self.xinfa];
+    [self.manager GET:enhanceListPath success:^(NSURLResponse *response, NSData *data) {
+        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        if (!_enhanceListArray) {
+            _enhanceListArray = [NSMutableArray array];
+        }
+        for (NSDictionary * equip in responseArray) {
+            PZEnhanceModel * model = [[PZEnhanceModel alloc]init];
+            [model setValuesForKeysWithDictionary:equip];
+            [_enhanceListArray addObject:model];
+        }
+    } failure:^(NSURLResponse *response, NSError *error) {
+        
+    }];
+}
+
+
 
 
 #pragma mark - 按键点击事件
 - (IBAction)equipListButtonClicked:(UIButton *)sender {
     //选择装备弹窗
-    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 130, 180, 300) inView:self.view andXinfa:_xinfa andPos:_pos];
+    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 130, 180, 300) inView:self.view andDataSource:[_equipListArray copy]];
     self.equipListDropControl.delegate = self;
     [_equipListDropControl show];
     [_equipDetailDropControl show];
@@ -90,7 +128,9 @@
     [_enhanceListDropControl show];
 }
 - (IBAction)stone1Clicked:(UIButton *)sender {
+    
 }
 - (IBAction)stone2Clicked:(UIButton *)sender {
+    
 }
 @end
