@@ -71,7 +71,7 @@
     _equipIndex = [NSString stringWithFormat:@"%ld",indexPath.row];
     
     PZEquipDetailViewController * equipDetailVC = [[PZEquipDetailViewController alloc]init];
-    equipDetailVC.xinfa = @"yijin";
+    equipDetailVC.xinfa = _xfDetail;
     equipDetailVC.pos = _equipIndex;
     
 //    [self.navigationController pushViewController:equipDetailVC animated:YES];
