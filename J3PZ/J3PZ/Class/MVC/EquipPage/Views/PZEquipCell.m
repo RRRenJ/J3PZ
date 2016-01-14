@@ -10,10 +10,8 @@
 #import "PZEquipDetailControl.h"
 #import <UIImageView+WebCache.h>
 #import "PZEquipListDropControl.h"
-@interface PZEquipCell ()<sendModelIconID,sendModelValue>
+@interface PZEquipCell ()
 
-@property(nonatomic,strong)NSString * equipIconID;
-@property(nonatomic,strong)NSString * equipName;
 @end
 
 
@@ -27,27 +25,19 @@
     [super setSelected:selected animated:animated];
 
 }
--(void)setModel:(PZEquipModel *)model{
-    _model = model;
-    PZEquipDetailControl * equipDC = [[PZEquipDetailControl alloc]init];
-    equipDC.delegate = self;
-    PZEquipListDropControl * equipListDC = [[PZEquipListDropControl alloc]init];
-    equipListDC.delegate = self;
+-(void)setEquipDetailModel:(PZEquipDetailModel *)equipDetailModel{
+    _equipDetailModel = equipDetailModel;
     
-    NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:PZEquipIconURL,_equipIconID]];
-    [self.equipIcon sd_setImageWithURL:iconURL placeholderImage:[UIImage imageNamed:@"1600"]];
-    self.EquipName.text = _equipName;
+    NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:PZEquipIconURL,self.equipDetailModel.iconID]];
+    [self.equipIcon sd_setImageWithURL:iconURL];
+    self.EquipName.text = self.equipDetailModel.name;
+    
+    self.cellImageView.backgroundColor = [UIColor clearColor];
+    self.stone1.backgroundColor = [UIColor clearColor];
+    self.stone2.backgroundColor = [UIColor clearColor];
+    self.EquipName.backgroundColor = [UIColor clearColor];
+    self.EnhanceName.backgroundColor = [UIColor clearColor];
+    self.equipIcon.backgroundColor = [UIColor clearColor];
 }
-
-
-
--(void)sendModelIconID:(NSString *)iconID{
-    _equipIconID = iconID;
-}
--(void)sendEquipListName:(NSString *)equipListName{
-    _equipName = equipListName;
-}
-
-
 
 @end

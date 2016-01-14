@@ -11,6 +11,7 @@
 		BC6079A21C3A9738009C9B83 /* PZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6079A11C3A9738009C9B83 /* PZBaseModel.m */; };
 		BC6088DA1C44DEF100E8C70F /* 1600.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088D91C44DEF100E8C70F /* 1600.png */; };
 		BC6088DC1C44FB9B00E8C70F /* popover_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */; };
+		BC6F26601C478E900022BD45 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC6F265F1C478E900022BD45 /* 2.jpg */; settings = {ASSET_TAGS = (); }; };
 		BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552511C3CA5E40019A07E /* PZEquipDetailViewController.m */; };
 		BC8552541C3CA5E40019A07E /* PZEquipDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8552521C3CA5E40019A07E /* PZEquipDetailViewController.xib */; };
 		BC8552571C3CAD1C0019A07E /* PZEquipDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552561C3CAD1C0019A07E /* PZEquipDetailModel.m */; };
@@ -65,6 +66,7 @@
 		BC6079A11C3A9738009C9B83 /* PZBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZBaseModel.m; sourceTree = "<group>"; };
 		BC6088D91C44DEF100E8C70F /* 1600.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1600.png; sourceTree = "<group>"; };
 		BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover_background@2x.png"; sourceTree = "<group>"; };
+		BC6F265F1C478E900022BD45 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		BC8552501C3CA5E40019A07E /* PZEquipDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZEquipDetailViewController.h; sourceTree = "<group>"; };
 		BC8552511C3CA5E40019A07E /* PZEquipDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZEquipDetailViewController.m; sourceTree = "<group>"; };
 		BC8552521C3CA5E40019A07E /* PZEquipDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PZEquipDetailViewController.xib; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */,
 				BC6088D91C44DEF100E8C70F /* 1600.png */,
+				BC6F265F1C478E900022BD45 /* 2.jpg */,
 				BC86C8941C3B98DE00EE8F21 /* Managers */,
 				BC8DB6471C3A468C0069D2DB /* MVC */,
 			);
@@ -643,6 +646,7 @@
 				BC6088DC1C44FB9B00E8C70F /* popover_background@2x.png in Resources */,
 				BC8DB6201C3A443A0069D2DB /* LaunchScreen.storyboard in Resources */,
 				BC6088DA1C44DEF100E8C70F /* 1600.png in Resources */,
+				BC6F26601C478E900022BD45 /* 2.jpg in Resources */,
 				BC8552541C3CA5E40019A07E /* PZEquipDetailViewController.xib in Resources */,
 				BC8DB6861C3A8BFC0069D2DB /* PZEquipCell.xib in Resources */,
 				BC8DB61D1C3A443A0069D2DB /* Assets.xcassets in Resources */,

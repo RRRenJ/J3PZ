@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PZEquipDetailModel.h"
 
+@protocol sendEquipDetilModel <NSObject>
 
-@protocol sendModelIconID <NSObject>
-
--(void)sendModelIconID:(NSString *)iconID;
+-(void)sendEquipDetilModel:(PZEquipDetailModel *)model;
 
 @end
 
@@ -22,6 +22,6 @@
 
 -(instancetype)initWithFrame:(CGRect)frame andView:(UIView *)view;;
 
-@property(nonatomic,weak)id<sendModelIconID>delegate;
+@property(nonatomic,weak)id<sendEquipDetilModel>delegate;
 
 @end

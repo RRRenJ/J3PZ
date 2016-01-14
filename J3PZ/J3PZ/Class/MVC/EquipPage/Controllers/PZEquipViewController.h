@@ -12,6 +12,7 @@
 
 @interface PZEquipViewController : UIViewController
 @property (nonatomic,copy) NSString *xfDetail;
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 
 
 

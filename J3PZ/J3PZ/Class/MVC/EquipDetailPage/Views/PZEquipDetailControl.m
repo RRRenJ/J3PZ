@@ -210,8 +210,8 @@
         }];
     
     
-    if ([self.delegate respondsToSelector:@selector(sendModelIconID:)]) {
-        [self.delegate sendModelIconID:self.model.iconID];
+    if ([self.delegate respondsToSelector:@selector(sendEquipDetilModel:)]) {
+        [self.delegate sendEquipDetilModel:self.model];
     }
    
 }

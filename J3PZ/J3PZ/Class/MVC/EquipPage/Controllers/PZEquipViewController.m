@@ -12,9 +12,10 @@
 #import "PZEquipDetailViewController.h"
 #import "PZEquipModel.h"
 #import "PZEnhanceModel.h"
-#import "PZEquipListDropControl.h"
+#import "PZEquipDetailControl.h"
+#import "PZEquipDetailModel.h"
 
-@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate,sendModelValue>
+@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate,sendEquipDetilModel>
 
 @property(nonatomic,strong)UIWindow * window;
 @property(nonatomic,strong)UIView * upView;
@@ -22,7 +23,7 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSString * equipIconID;
 @property(nonatomic,strong)PZNetworkingManager * manager;
-
+@property(nonatomic,strong)PZEquipDetailModel * equipDetailModel;
 
 @end
 
@@ -36,7 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.backImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"backImage_%d@2x",arc4random()%3]];
+    self.backImageView.userInteractionEnabled = YES;
     [self createTableView];
 }
 
@@ -46,13 +48,17 @@
 }
 #pragma mark - createUI
 -(void)createTableView{
-
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH ,SCREEN_HEIGHT)];
-    [self.view addSubview:self.tableView];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, -20,SCREEN_WIDTH ,SCREEN_HEIGHT)];
+    [self.backImageView addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
     //注册CELL
     [self.tableView registerNib:[UINib nibWithNibName:@"PZEquipCell" bundle:nil] forCellReuseIdentifier:@"PZEquipCell"];
+    
+    PZEquipDetailControl * equipDC = [[PZEquipDetailControl alloc]init];
+    equipDC.delegate = self;
 
 }
 
@@ -63,7 +69,57 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PZEquipCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PZEquipCell" forIndexPath:indexPath];
+    switch (indexPath.row) {
+        case 0:
+            cell.equipIcon.image = [UIImage imageNamed:@"头部"];
+            break;
+        case 1:
+            cell.equipIcon.image = [UIImage imageNamed:@"上衣"];
+            break;
+        case 2:
+            cell.equipIcon.image = [UIImage imageNamed:@"腰部"];
+            break;
+        case 3:
+            cell.equipIcon.image = [UIImage imageNamed:@"护腕"];
+            break;
+        case 4:
+            cell.equipIcon.image = [UIImage imageNamed:@"武器"];
+            break;
+        case 5:
+            cell.equipIcon.image = [UIImage imageNamed:@"暗器"];
+            break;
+        case 6:
+            cell.equipIcon.image = [UIImage imageNamed:@"下装"];
+            break;
+        case 7:
+            cell.equipIcon.image = [UIImage imageNamed:@"鞋子"];
+            break;
+        case 8:
+            cell.equipIcon.image = [UIImage imageNamed:@"项链"];
+            break;
+        case 9:
+            cell.equipIcon.image = [UIImage imageNamed:@"腰坠"];
+            break;
+        case 10:
+            cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
+            break;
+        case 11:
+            cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
+            break;
+//        case 12:
+//            cell.equipIcon.image = [UIImage imageNamed:@"头部"];
+//            break;
+//            
+        default:
+            break;
+    }
     
+    
+    
+    
+    cell.equipDetailModel = self.equipDetailModel;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -73,8 +129,7 @@
     PZEquipDetailViewController * equipDetailVC = [[PZEquipDetailViewController alloc]init];
     equipDetailVC.xinfa = _xfDetail;
     equipDetailVC.pos = _equipIndex;
-    
-//    [self.navigationController pushViewController:equipDetailVC animated:YES];
+    //弹窗实现
     UIWindow * window = [[UIWindow alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, 0, SCREEN_HEIGHT)];
     window.windowLevel = UIWindowLevelNormal;
     window.hidden = NO;
@@ -118,18 +173,13 @@
     }];
     
 }
-
-
-
-#pragma mark - requestData
--(void)requestData{
-    
-    
-   
-  
+-(void)sendEquipDetilModel:(PZEquipDetailModel *)model{
+    self.equipDetailModel = model;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+    });
 }
--(void)sendEquipListID:(NSString *)equipListID{
-    self.equipIconID = equipListID;
-}
+
+
 
 @end
