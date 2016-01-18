@@ -15,7 +15,7 @@
 #import "PZEquipDetailControl.h"
 #import "PZEquipDetailModel.h"
 
-@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate,sendEquipDetilModel>
+@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate,sendEquipDetailModel>
 
 @property(nonatomic,strong)UIWindow * window;
 @property(nonatomic,strong)UIView * upView;

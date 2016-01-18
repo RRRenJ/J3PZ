@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PZEquipDetailViewController">
@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-jc-Qxy">
-                    <rect key="frame" x="33" y="118" width="159" height="28"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-jc-Qxy">
+                    <rect key="frame" x="20" y="491" width="150" height="28"/>
                     <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="选择装备">
                         <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,9 +29,13 @@
                         <action selector="equipListButtonClicked:" destination="-1" eventType="touchUpInside" id="8Ro-7l-iXt"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koO-ih-936">
-                    <rect key="frame" x="36" y="189" width="156" height="28"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koO-ih-936">
+                    <rect key="frame" x="20" y="539" width="150" height="28"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="WvS-4t-Gfe"/>
+                        <constraint firstAttribute="height" constant="28" id="izy-Xl-MJ0"/>
+                    </constraints>
                     <state key="normal" title="选择附魔">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -39,8 +43,8 @@
                         <action selector="enhanceListButtonClicked:" destination="-1" eventType="touchUpInside" id="P3G-lZ-Szj"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNr-Xx-qv4">
-                    <rect key="frame" x="278" y="116" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNr-Xx-qv4">
+                    <rect key="frame" x="190" y="491" width="30" height="28"/>
                     <state key="normal" title="镶嵌">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -48,8 +52,8 @@
                         <action selector="stone1Clicked:" destination="-1" eventType="touchUpInside" id="2kz-o4-JTL"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-Lr-FbB">
-                    <rect key="frame" x="278" y="189" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-Lr-FbB">
+                    <rect key="frame" x="190" y="539" width="30" height="28"/>
                     <state key="normal" title="镶嵌">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -59,8 +63,23 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="b4c-Lr-FbB" firstAttribute="bottom" secondItem="koO-ih-936" secondAttribute="bottom" id="0z8-7D-YyE"/>
+                <constraint firstItem="VNr-Xx-qv4" firstAttribute="bottom" secondItem="8EZ-jc-Qxy" secondAttribute="bottom" id="Ll9-ID-D0X"/>
+                <constraint firstItem="b4c-Lr-FbB" firstAttribute="leading" secondItem="koO-ih-936" secondAttribute="trailing" constant="20" id="MRj-JQ-IDu"/>
+                <constraint firstItem="8EZ-jc-Qxy" firstAttribute="height" secondItem="koO-ih-936" secondAttribute="height" id="PO2-bc-1yJ"/>
+                <constraint firstItem="koO-ih-936" firstAttribute="top" secondItem="8EZ-jc-Qxy" secondAttribute="bottom" constant="20" id="POI-i8-BKX"/>
+                <constraint firstItem="8EZ-jc-Qxy" firstAttribute="leading" secondItem="koO-ih-936" secondAttribute="leading" id="aub-Ic-47Y"/>
+                <constraint firstItem="b4c-Lr-FbB" firstAttribute="top" secondItem="koO-ih-936" secondAttribute="top" id="d7E-2B-ybE"/>
+                <constraint firstItem="VNr-Xx-qv4" firstAttribute="leading" secondItem="b4c-Lr-FbB" secondAttribute="leading" id="etc-E6-PH5"/>
+                <constraint firstItem="8EZ-jc-Qxy" firstAttribute="width" secondItem="koO-ih-936" secondAttribute="width" id="hyo-yc-fZU"/>
+                <constraint firstItem="VNr-Xx-qv4" firstAttribute="trailing" secondItem="b4c-Lr-FbB" secondAttribute="trailing" id="kkd-II-4Oj"/>
+                <constraint firstItem="koO-ih-936" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="oLT-DB-LtZ"/>
+                <constraint firstItem="VNr-Xx-qv4" firstAttribute="top" secondItem="8EZ-jc-Qxy" secondAttribute="top" id="rfm-k6-zM2"/>
+                <constraint firstAttribute="bottom" secondItem="koO-ih-936" secondAttribute="bottom" constant="100" id="svn-1z-i1L"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="290.5" y="385.5"/>
+            <point key="canvasLocation" x="72.5" y="260.5"/>
         </view>
     </objects>
 </document>

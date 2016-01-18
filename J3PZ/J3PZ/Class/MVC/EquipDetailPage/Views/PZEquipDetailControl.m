@@ -10,6 +10,7 @@
 #import "PZNetworkingManager.h"
 #import "PZEquipListDropControl.h"
 #import "PZEquipDetailModel.h"
+
 #define CELL_HIGHT 15
 
 @interface PZEquipDetailControl ()<UITableViewDataSource,UITableViewDelegate,sendModelValue>
@@ -22,7 +23,6 @@
 @property(nonatomic,strong)PZEquipDetailModel * model;
 @property(nonatomic,strong)NSMutableArray * dataArray;
 @property(nonatomic,assign)CGRect tableViewFrame;
-@property(nonatomic,copy)NSString * equipListID;
 @property(nonatomic,strong)PZNetworkingManager * manager;
 @property(nonatomic,strong)UIView * sView;
 @end
@@ -36,23 +36,31 @@
     }
     return _manager;
 }
-
+-(instancetype)init{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
 
 
 -(instancetype)initWithFrame:(CGRect)frame andView:(UIView *)view{
     if (self = [super initWithFrame:frame]) {
         self.sView = view;
         self.tableViewFrame = frame;
-        [self requestData];
+//        [self createTableView];
     }
     return self;
 }
 
 -(void)show{
-    [self.sView addSubview:_tableView];
+    
+    [self requestData];
+    
 }
 #pragma mark - 添加数据源
 -(void)createDataArray{
+    
     if ([self.model.strengthen isEqualToString:@"8"]) {
         proportion = 0.124;
     }else if ([self.model.strengthen isEqualToString:@"6"]){
@@ -64,6 +72,8 @@
     }
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
+    }else{
+        [_dataArray removeAllObjects];
     }
     //装备名字
     [_dataArray addObject:self.model.name];
@@ -149,12 +159,8 @@
     }
     [_dataArray addObject:[NSString stringWithFormat:@"品质等级 %@",self.model.quality]];
     [_dataArray addObject:[NSString stringWithFormat:@"装备分数 %@",self.model.score]];
-    
-    NSLog(@"*****%lu",_dataArray.count);
     [self createTableView];
-    
 }
-
 
 #pragma mark - createTableView
 
@@ -163,6 +169,7 @@
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.tableViewFrame), CGRectGetMinY(self.tableViewFrame), CGRectGetWidth(self.tableViewFrame), NowHeight)];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.scrollEnabled = NO;
+    [self.sView addSubview:_tableView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
@@ -191,10 +198,10 @@
 #pragma mark - requestData
 -(void)requestData{
     PZEquipListDropControl * equipListControl = [[PZEquipListDropControl alloc]init];
+    NSLog(@"%@",_equipListID);
     equipListControl.delegate = self;
-    
-    NSString * enquipDetailPath = [NSString stringWithFormat:PZEquipDetailURL,@"15000"];
-    
+    NSString * enquipDetailPath = [NSString stringWithFormat:PZEquipDetailURL,_equipListID];
+    NSLog(@"%@",enquipDetailPath);
         [self.manager GET:enquipDetailPath success:^(NSURLResponse *response, NSData *data) {
             NSDictionary * responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSLog(@"%@",responseDict);
@@ -203,6 +210,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self createDataArray];
                 [_tableView reloadData];
+                
             });
             
         } failure:^(NSURLResponse *response, NSError *error) {
@@ -210,8 +218,8 @@
         }];
     
     
-    if ([self.delegate respondsToSelector:@selector(sendEquipDetilModel:)]) {
-        [self.delegate sendEquipDetilModel:self.model];
+    if ([self.delegate respondsToSelector:@selector(sendEquipDetailModel:)]) {
+        [self.delegate sendEquipDetailModel:self.model];
     }
    
 }

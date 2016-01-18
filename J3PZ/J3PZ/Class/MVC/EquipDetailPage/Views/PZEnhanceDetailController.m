@@ -28,13 +28,7 @@
 }
 
 -(void)createData{
-    _dataArray = [[NSMutableArray alloc]init];
-    
-    
-    
-    
-    
-    
+    _dataArray = [[NSMutableArray alloc]init];   
 }
 
 

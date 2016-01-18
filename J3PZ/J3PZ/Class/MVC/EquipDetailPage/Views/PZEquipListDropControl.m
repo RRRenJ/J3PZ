@@ -11,6 +11,7 @@
 #import "PZEquipViewController.h"
 #import "PZNetworkingManager.h"
 #import "PZEquipDetailViewController.h"
+#import "PZEquipDetailControl.h"
 #define CELL_HEIGHT 25
 
 @interface PZEquipListDropControl ()<UITableViewDelegate,UITableViewDataSource>
@@ -21,7 +22,7 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)PZNetworkingManager * manager;
 @property(nonatomic,strong)NSArray * equipListArray;
-
+@property (nonatomic,strong)PZEquipDetailControl *pzEquipDetailControl;
 @end
 
 
@@ -48,7 +49,6 @@
         self.dropImageView.image = [[UIImage imageNamed:@"popover_background"] stretchableImageWithLeftCapWidth:3 topCapHeight:10];
         [self addSubview:self.dropImageView];
         self.dropImageView.userInteractionEnabled = YES;
-
         [self createTableView];
     }
     
@@ -97,6 +97,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor  clearColor];
     self.tableView.clipsToBounds = YES;
+    
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -121,35 +123,18 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     PZEquipModel * model = _equipListArray[indexPath.row];
-    NSLog(@"%@",model.name);
     if ([self.delegate respondsToSelector:@selector(sendEquipListID:)]) {
         [self.delegate sendEquipListID:model.Id];
     }
     if ([self.delegate respondsToSelector:@selector(sendEquipListName:)]) {
         [self.delegate sendEquipListName:model.name];
     }
-
+    
+    _pzEquipDetailControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(0, 100, 180, 300) andView:self.sView];
+    NSLog(@"%@",self.sView);
+    _pzEquipDetailControl.equipListID = model.Id;
+    [_pzEquipDetailControl show];
     [self hide];
 }
-//#pragma mark - requestData
-
-//    NSString * enhanceListPath = [[NSString alloc]initWithFormat:PZEnhanceURL,_equipIndex,_xinfa];
-//    [self.manager GET:enhanceListPath success:^(NSURLResponse *response, NSData *data) {
-//        NSArray * responseArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//        if (!_enhanceListArray) {
-//            _enhanceListArray = [NSMutableArray array];
-//        }
-//        for (NSDictionary * equip in responseArray) {
-//            PZEnhanceModel * model = [[PZEnhanceModel alloc]init];
-//            [model setValuesForKeysWithDictionary:equip];
-//            [_enhanceListArray addObject:model];
-//        }
-//    } failure:^(NSURLResponse *response, NSError *error) {
-//        
-//    }];
-//}
-
-
-
 
 @end
