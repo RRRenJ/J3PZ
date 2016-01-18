@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.backImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"backImage_%d@2x",arc4random()%3]];
+    self.backImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"backImage_%d",arc4random()%3]];
     self.backImageView.userInteractionEnabled = YES;
     [self createTableView];
 }
@@ -113,11 +113,13 @@
         default:
             break;
     }
-    
-    
-    
-    
-    cell.equipDetailModel = self.equipDetailModel;
+    cell.EquipName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]] ;
+    cell.EnhanceName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]];
+    cell.stone1.image = [UIImage imageNamed:@"stone_bk"];
+    cell.stone2.image = [UIImage imageNamed:@"stone_bk"];
+    if (self.equipDetailModel.iconID != nil) {
+        cell.equipDetailModel = self.equipDetailModel;
+    }
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

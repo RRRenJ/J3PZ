@@ -31,7 +31,7 @@
     NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:PZEquipIconURL,self.equipDetailModel.iconID]];
     [self.equipIcon sd_setImageWithURL:iconURL];
     self.EquipName.text = self.equipDetailModel.name;
-    
+
     self.cellImageView.backgroundColor = [UIColor clearColor];
     self.stone1.backgroundColor = [UIColor clearColor];
     self.stone2.backgroundColor = [UIColor clearColor];
