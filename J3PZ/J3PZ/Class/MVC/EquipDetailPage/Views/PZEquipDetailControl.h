@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PZEquipDetailModel.h"
 
-@protocol sendEquipDetilModel <NSObject>
+@protocol sendEquipDetailModel <NSObject>
 
--(void)sendEquipDetilModel:(PZEquipDetailModel *)model;
+-(void)sendEquipDetailModel:(PZEquipDetailModel *)model;
 
 @end
 
@@ -20,8 +20,11 @@
 
 -(void)show;
 
--(instancetype)initWithFrame:(CGRect)frame andView:(UIView *)view;;
+-(instancetype)initWithFrame:(CGRect)frame andView:(UIView *)view;
 
-@property(nonatomic,weak)id<sendEquipDetilModel>delegate;
+@property(nonatomic,copy) NSString *equipListID;
+
+@property(nonatomic,weak)id<sendEquipDetailModel>delegate;
+
 
 @end

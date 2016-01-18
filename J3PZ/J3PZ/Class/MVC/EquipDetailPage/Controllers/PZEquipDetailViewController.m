@@ -46,6 +46,7 @@
     [super viewDidLoad];
     [self createUI];
     [self requestData];
+    NSLog(@"*********%@",self.view);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,11 +54,7 @@
     
 }
 
--(void)createUI{
-    
-    //装备属性弹窗
-    self.equipDetailDropControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(50, 400, 250, 100) andView:self.view];
-    
+-(void)createUI{   
     //选择附魔弹窗
 //    self.enhanceListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 250, 100, 100) inView:nil];
     
@@ -66,8 +63,6 @@
     [_enhanceListButton setTitle:@"请选择附魔" forState:UIControlStateNormal];
     [_stone1 setTitle:@"镶嵌" forState:UIControlStateNormal];
     [_stone2 setTitle:@"镶嵌" forState:UIControlStateNormal];
-    
-    
 }
 
 
@@ -118,10 +113,10 @@
 #pragma mark - 按键点击事件
 - (IBAction)equipListButtonClicked:(UIButton *)sender {
     //选择装备弹窗
-    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 130, 180, 300) inView:self.view andDataSource:[_equipListArray copy]];
+    self.equipListDropControl = [[PZEquipListDropControl alloc]initWithInsideFrame:CGRectMake(20, 330, 180, 300) inView:self.view andDataSource:[_equipListArray copy]];
     self.equipListDropControl.delegate = self;
     [_equipListDropControl show];
-    [_equipDetailDropControl show];
+    
     
 }
 - (IBAction)enhanceListButtonClicked:(UIButton *)sender {
