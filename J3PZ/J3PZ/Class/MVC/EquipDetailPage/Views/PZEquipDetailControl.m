@@ -49,6 +49,7 @@
         self.sView = view;
         self.tableViewFrame = frame;
 //        [self createTableView];
+        
     }
     return self;
 }
@@ -72,8 +73,6 @@
     }
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
-    }else{
-        [_dataArray removeAllObjects];
     }
     //装备名字
     [_dataArray addObject:self.model.name];
@@ -198,15 +197,17 @@
 #pragma mark - requestData
 -(void)requestData{
     PZEquipListDropControl * equipListControl = [[PZEquipListDropControl alloc]init];
-    NSLog(@"%@",_equipListID);
+    
     equipListControl.delegate = self;
     NSString * enquipDetailPath = [NSString stringWithFormat:PZEquipDetailURL,_equipListID];
-    NSLog(@"%@",enquipDetailPath);
+    
         [self.manager GET:enquipDetailPath success:^(NSURLResponse *response, NSData *data) {
             NSDictionary * responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            NSLog(@"%@",responseDict);
+            
             self.model = [[PZEquipDetailModel alloc]init];
             [self.model setValuesForKeysWithDictionary:responseDict];
+            NSLog(@"%@",self.model);
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"sendDetailModel" object:nil userInfo:@{@"model":self.model}];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self createDataArray];
                 [_tableView reloadData];
@@ -217,14 +218,12 @@
             
         }];
     
-    
-    if ([self.delegate respondsToSelector:@selector(sendEquipDetailModel:)]) {
-        [self.delegate sendEquipDetailModel:self.model];
-    }
+   
    
 }
 
 -(void)sendEquipListID:(NSString *)equipListID{
+    
     self.equipListID = equipListID;
 }
 

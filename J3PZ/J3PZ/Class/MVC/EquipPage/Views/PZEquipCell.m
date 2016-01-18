@@ -31,13 +31,9 @@
     NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:PZEquipIconURL,self.equipDetailModel.iconID]];
     [self.equipIcon sd_setImageWithURL:iconURL];
     self.EquipName.text = self.equipDetailModel.name;
+    self.EquipName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]] ;
+    self.EnhanceName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]];
 
-    self.cellImageView.backgroundColor = [UIColor clearColor];
-    self.stone1.backgroundColor = [UIColor clearColor];
-    self.stone2.backgroundColor = [UIColor clearColor];
-    self.EquipName.backgroundColor = [UIColor clearColor];
-    self.EnhanceName.backgroundColor = [UIColor clearColor];
-    self.equipIcon.backgroundColor = [UIColor clearColor];
 }
 
 @end

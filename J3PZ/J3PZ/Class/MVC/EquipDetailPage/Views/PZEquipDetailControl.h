@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PZEquipDetailModel.h"
 
-@protocol sendEquipDetailModel <NSObject>
-
--(void)sendEquipDetailModel:(PZEquipDetailModel *)model;
-
-@end
+//@protocol sendEquipDetailModel <NSObject>
+//
+//-(void)sendEquipDetailModel:(PZEquipDetailModel *)model;
+//
+//@end
 
 
 @interface PZEquipDetailControl : UIControl
@@ -24,7 +24,7 @@
 
 @property(nonatomic,copy) NSString *equipListID;
 
-@property(nonatomic,weak)id<sendEquipDetailModel>delegate;
+//@property(nonatomic,weak)id<sendEquipDetailModel>delegate;
 
 
 @end

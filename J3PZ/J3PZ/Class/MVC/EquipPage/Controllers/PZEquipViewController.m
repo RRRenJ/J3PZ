@@ -15,7 +15,7 @@
 #import "PZEquipDetailControl.h"
 #import "PZEquipDetailModel.h"
 
-@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate,sendEquipDetailModel>
+@interface PZEquipViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)UIWindow * window;
 @property(nonatomic,strong)UIView * upView;
@@ -24,6 +24,7 @@
 @property(nonatomic,strong)NSString * equipIconID;
 @property(nonatomic,strong)PZNetworkingManager * manager;
 @property(nonatomic,strong)PZEquipDetailModel * equipDetailModel;
+
 
 @end
 
@@ -54,11 +55,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.backgroundColor = [UIColor clearColor];
+    
     //注册CELL
     [self.tableView registerNib:[UINib nibWithNibName:@"PZEquipCell" bundle:nil] forCellReuseIdentifier:@"PZEquipCell"];
-    
-    PZEquipDetailControl * equipDC = [[PZEquipDetailControl alloc]init];
-    equipDC.delegate = self;
 
 }
 
@@ -69,56 +68,59 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PZEquipCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PZEquipCell" forIndexPath:indexPath];
-    switch (indexPath.row) {
-        case 0:
-            cell.equipIcon.image = [UIImage imageNamed:@"头部"];
-            break;
-        case 1:
-            cell.equipIcon.image = [UIImage imageNamed:@"上衣"];
-            break;
-        case 2:
-            cell.equipIcon.image = [UIImage imageNamed:@"腰部"];
-            break;
-        case 3:
-            cell.equipIcon.image = [UIImage imageNamed:@"护腕"];
-            break;
-        case 4:
-            cell.equipIcon.image = [UIImage imageNamed:@"武器"];
-            break;
-        case 5:
-            cell.equipIcon.image = [UIImage imageNamed:@"暗器"];
-            break;
-        case 6:
-            cell.equipIcon.image = [UIImage imageNamed:@"下装"];
-            break;
-        case 7:
-            cell.equipIcon.image = [UIImage imageNamed:@"鞋子"];
-            break;
-        case 8:
-            cell.equipIcon.image = [UIImage imageNamed:@"项链"];
-            break;
-        case 9:
-            cell.equipIcon.image = [UIImage imageNamed:@"腰坠"];
-            break;
-        case 10:
-            cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
-            break;
-        case 11:
-            cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
-            break;
-//        case 12:
-//            cell.equipIcon.image = [UIImage imageNamed:@"头部"];
-//            break;
-//            
-        default:
-            break;
+    if (cell.equipIcon != nil) {
+        switch (indexPath.row) {
+            case 0:
+                cell.equipIcon.image = [UIImage imageNamed:@"头部"];
+                break;
+            case 1:
+                cell.equipIcon.image = [UIImage imageNamed:@"上衣"];
+                break;
+            case 2:
+                cell.equipIcon.image = [UIImage imageNamed:@"腰部"];
+                break;
+            case 3:
+                cell.equipIcon.image = [UIImage imageNamed:@"护腕"];
+                break;
+            case 11:
+                cell.equipIcon.image = [UIImage imageNamed:@"武器"];
+                break;
+            case 10:
+                cell.equipIcon.image = [UIImage imageNamed:@"暗器"];
+                break;
+            case 4:
+                cell.equipIcon.image = [UIImage imageNamed:@"下装"];
+                break;
+            case 5:
+                cell.equipIcon.image = [UIImage imageNamed:@"鞋子"];
+                break;
+            case 6:
+                cell.equipIcon.image = [UIImage imageNamed:@"项链"];
+                break;
+            case 7:
+                cell.equipIcon.image = [UIImage imageNamed:@"腰坠"];
+                break;
+            case 8:
+                cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
+                break;
+            case 9:
+                cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
+                break;
+    //        case 12:
+    //            cell.equipIcon.image = [UIImage imageNamed:@"头部"];
+    //            break;
+    //            
+            default:
+                break;
+        }
     }
     cell.EquipName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]] ;
     cell.EnhanceName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]];
     cell.stone1.image = [UIImage imageNamed:@"stone_bk"];
     cell.stone2.image = [UIImage imageNamed:@"stone_bk"];
-    if (self.equipDetailModel.iconID != nil) {
+    if (self.equipDetailModel.iconID != nil && indexPath.row == [self.equipIndex integerValue]) {
         cell.equipDetailModel = self.equipDetailModel;
+
     }
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -154,6 +156,7 @@
         view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     } completion:^(BOOL finished) {
     }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendDetailModel:) name:@"sendDetailModel" object:nil];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -175,13 +178,15 @@
     }];
     
 }
--(void)sendEquipDetilModel:(PZEquipDetailModel *)model{
-    self.equipDetailModel = model;
+
+-(void)sendDetailModel:(NSNotification *)notif{
+    NSDictionary * dict = notif.userInfo;
+    self.equipDetailModel = dict[@"model"];
+    NSLog(@".......");
     dispatch_async(dispatch_get_main_queue(), ^{
         [_tableView reloadData];
     });
 }
-
 
 
 @end

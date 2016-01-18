@@ -131,7 +131,7 @@
     }
     
     _pzEquipDetailControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(0, 100, 180, 300) andView:self.sView];
-    NSLog(@"%@",self.sView);
+    
     _pzEquipDetailControl.equipListID = model.Id;
     [_pzEquipDetailControl show];
     [self hide];

@@ -46,7 +46,6 @@
     [super viewDidLoad];
     [self createUI];
     [self requestData];
-    NSLog(@"*********%@",self.view);
 }
 
 - (void)didReceiveMemoryWarning {
