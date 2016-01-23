@@ -9,13 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol sendModelValue <NSObject>
-
--(void)sendEquipListID:(NSString *)equipListID;
 -(void)sendEquipListName:(NSString *)equipListName;
 @end
-
-
-
 
 @interface PZEquipListDropControl : UIControl
 
@@ -25,7 +20,5 @@
 -(void)hide;
 
 -(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andDataSource:(NSArray *)dataArray;
-
-
 
 @end

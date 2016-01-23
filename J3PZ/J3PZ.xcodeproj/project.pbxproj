@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115D9E775F0741A1698E4202 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CC6E11939F29C22021BE65 /* libPods.a */; };
+		84C052311C5429A30087B445 /* UIColor+Her.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C052301C5429A30087B445 /* UIColor+Her.m */; };
 		BC6079A21C3A9738009C9B83 /* PZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6079A11C3A9738009C9B83 /* PZBaseModel.m */; };
 		BC6088DC1C44FB9B00E8C70F /* popover_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */; };
 		BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8552511C3CA5E40019A07E /* PZEquipDetailViewController.m */; };
@@ -60,6 +61,8 @@
 /* Begin PBXFileReference section */
 		6788B05BB88E2F9F35C44316 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		67CC6E11939F29C22021BE65 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C0522F1C5429A30087B445 /* UIColor+Her.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Her.h"; sourceTree = "<group>"; };
+		84C052301C5429A30087B445 /* UIColor+Her.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Her.m"; sourceTree = "<group>"; };
 		BC6079A01C3A9738009C9B83 /* PZBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZBaseModel.h; sourceTree = "<group>"; };
 		BC6079A11C3A9738009C9B83 /* PZBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZBaseModel.m; sourceTree = "<group>"; };
 		BC6088DB1C44FB9B00E8C70F /* popover_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover_background@2x.png"; sourceTree = "<group>"; };
@@ -151,6 +154,15 @@
 				67CC6E11939F29C22021BE65 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84C0522E1C5429A30087B445 /* 16进制颜色 */ = {
+			isa = PBXGroup;
+			children = (
+				84C0522F1C5429A30087B445 /* UIColor+Her.h */,
+				84C052301C5429A30087B445 /* UIColor+Her.m */,
+			);
+			path = "16进制颜色";
 			sourceTree = "<group>";
 		};
 		BC86C8941C3B98DE00EE8F21 /* Managers */ = {
@@ -256,6 +268,7 @@
 		BC8DB6471C3A468C0069D2DB /* MVC */ = {
 			isa = PBXGroup;
 			children = (
+				84C0522E1C5429A30087B445 /* 16进制颜色 */,
 				BC8DB6681C3A73650069D2DB /* EquipDetailPage */,
 				BC8DB66C1C3A73650069D2DB /* EquipPage */,
 				BC8DB6701C3A73650069D2DB /* OccupationPage */,
@@ -729,6 +742,7 @@
 				BCF77EB91C3FD39D00E254DC /* PZEnhanceDetailModel.m in Sources */,
 				BC8DB6631C3A4E810069D2DB /* PZMyViewController.m in Sources */,
 				BC85525A1C3CB07C0019A07E /* PZEquipDetailControl.m in Sources */,
+				84C052311C5429A30087B445 /* UIColor+Her.m in Sources */,
 				BC8552531C3CA5E40019A07E /* PZEquipDetailViewController.m in Sources */,
 				BC8DB6891C3A945B0069D2DB /* PZEquipModel.m in Sources */,
 				BC86C89A1C3BB73300EE8F21 /* PZEquipListDropControl.m in Sources */,

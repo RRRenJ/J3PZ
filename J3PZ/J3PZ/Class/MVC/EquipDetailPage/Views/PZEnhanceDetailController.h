@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol sendEnhanceValue <NSObject>
+-(void)sendEnhanceName:(NSString *)enhanceName;
+-(void)sendEnhanceDetail:(NSString *)enhanceDetail;
+@end
+
 @interface PZEnhanceDetailController : UIControl
+
+@property (nonatomic,weak) id<sendEnhanceValue>delegate;
+@property (nonatomic,weak) id<sendEnhanceValue>Detaildelegate;
+
 
 -(void)show;
 
--(instancetype)initWithFrame:(CGRect)frame;
-
+-(instancetype)initWithInsideFrame:(CGRect)frame inView:(UIView *)view andDataSource:(NSArray *)dataArray;
 @end
