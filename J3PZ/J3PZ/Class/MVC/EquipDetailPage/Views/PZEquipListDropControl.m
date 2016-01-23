@@ -12,9 +12,11 @@
 #import "PZNetworkingManager.h"
 #import "PZEquipDetailViewController.h"
 #import "PZEquipDetailControl.h"
+#import "PZEnhanceDetailModel.h"
+
 #define CELL_HEIGHT 25
 
-@interface PZEquipListDropControl ()<UITableViewDelegate,UITableViewDataSource>
+@interface PZEquipListDropControl ()<UITableViewDelegate,UITableViewDataSource,sendModelValue>
 
 @property(nonatomic,weak)UIView * sView;
 @property(nonatomic,strong)UIImageView * dropImageView;
@@ -97,12 +99,11 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor  clearColor];
     self.tableView.clipsToBounds = YES;
-    
-    
+   
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"%lu",self.equipListArray.count);
+
     return self.equipListArray.count;
     
 }
@@ -123,15 +124,18 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     PZEquipModel * model = _equipListArray[indexPath.row];
-    if ([self.delegate respondsToSelector:@selector(sendEquipListID:)]) {
-        [self.delegate sendEquipListID:model.Id];
-    }
     if ([self.delegate respondsToSelector:@selector(sendEquipListName:)]) {
         [self.delegate sendEquipListName:model.name];
     }
     
-    _pzEquipDetailControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(0, 100, 180, 300) andView:self.sView];
-    
+    // 移除self.sView上的装备详情tableView
+    NSArray *arr = self.sView.subviews;
+    for (UIView *vie in arr) {
+        if ([vie isMemberOfClass:[UITableView class]]) {
+            [vie removeFromSuperview];
+        }
+    }
+     _pzEquipDetailControl = [[PZEquipDetailControl alloc]initWithFrame:CGRectMake(20, 100, 220, 100) andView:self.sView];
     _pzEquipDetailControl.equipListID = model.Id;
     [_pzEquipDetailControl show];
     [self hide];

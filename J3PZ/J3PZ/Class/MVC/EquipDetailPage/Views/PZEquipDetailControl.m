@@ -10,8 +10,11 @@
 #import "PZNetworkingManager.h"
 #import "PZEquipListDropControl.h"
 #import "PZEquipDetailModel.h"
+#import "UIColor+Her.h"
+#import "PZEnhanceDetailController.h"
+#import "PZEnhanceDetailModel.h"
 
-#define CELL_HIGHT 15
+#define CELL_HIGHT 20
 
 @interface PZEquipDetailControl ()<UITableViewDataSource,UITableViewDelegate,sendModelValue>
 {
@@ -25,6 +28,8 @@
 @property(nonatomic,assign)CGRect tableViewFrame;
 @property(nonatomic,strong)PZNetworkingManager * manager;
 @property(nonatomic,strong)UIView * sView;
+@property(nonatomic,strong)PZEnhanceDetailModel *detailModel;
+
 @end
 
 
@@ -36,6 +41,7 @@
     }
     return _manager;
 }
+
 -(instancetype)init{
     if (self = [super init]) {
         
@@ -48,20 +54,19 @@
     if (self = [super initWithFrame:frame]) {
         self.sView = view;
         self.tableViewFrame = frame;
-//        [self createTableView];
-        
     }
     return self;
 }
 
 -(void)show{
-    
     [self requestData];
-    
+}
+-(void)reload{
+    [self createDataArray];
+    [self.tableView reloadData];
 }
 #pragma mark - 添加数据源
 -(void)createDataArray{
-    
     if ([self.model.strengthen isEqualToString:@"8"]) {
         proportion = 0.124;
     }else if ([self.model.strengthen isEqualToString:@"6"]){
@@ -156,6 +161,10 @@
     if(![self.model.huajing isEqualToString:@"0"]){
         [_dataArray addObject:[NSString stringWithFormat:@"化劲等级提高%@ (+%d)",self.model.huajing,(int)([self.model.huajing intValue] * proportion)]];
     }
+    //附魔
+    if (self.detailModel.desc != nil) {
+        [_dataArray insertObject:self.detailModel.desc atIndex:_dataArray.count -2];
+    }
     [_dataArray addObject:[NSString stringWithFormat:@"品质等级 %@",self.model.quality]];
     [_dataArray addObject:[NSString stringWithFormat:@"装备分数 %@",self.model.score]];
     [self createTableView];
@@ -180,8 +189,10 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
     }
+    cell.backgroundColor = [UIColor colorWithHexString:@"#004d40" alpha:1];
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = _dataArray[indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
     if (indexPath.row == _dataArray.count -2) {
         cell.textLabel.textColor = [UIColor yellowColor];
     }
@@ -197,36 +208,26 @@
 #pragma mark - requestData
 -(void)requestData{
     PZEquipListDropControl * equipListControl = [[PZEquipListDropControl alloc]init];
-    
     equipListControl.delegate = self;
     NSString * enquipDetailPath = [NSString stringWithFormat:PZEquipDetailURL,_equipListID];
+    [self.manager GET:enquipDetailPath success:^(NSURLResponse *response, NSData *data) {
+        NSDictionary * responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        self.model = [[PZEquipDetailModel alloc]init];
+        [self.model setValuesForKeysWithDictionary:responseDict];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"sendDetailModel" object:nil userInfo:@{@"model":self.model}];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+            [self createDataArray];
+        });
+        
+    } failure:^(NSURLResponse *response, NSError *error) {
+        
+    }];
     
-        [self.manager GET:enquipDetailPath success:^(NSURLResponse *response, NSData *data) {
-            NSDictionary * responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            self.model = [[PZEquipDetailModel alloc]init];
-            [self.model setValuesForKeysWithDictionary:responseDict];
-            NSLog(@"%@",self.model);
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"sendDetailModel" object:nil userInfo:@{@"model":self.model}];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self createDataArray];
-                [_tableView reloadData];
-                
-            });
-            
-        } failure:^(NSURLResponse *response, NSError *error) {
-            
-        }];
-    
-   
-   
 }
 
 -(void)sendEquipListID:(NSString *)equipListID{
-    
     self.equipListID = equipListID;
 }
-
-
 
 @end

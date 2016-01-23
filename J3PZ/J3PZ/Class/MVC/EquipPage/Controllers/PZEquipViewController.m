@@ -177,7 +177,7 @@
 //    self.equipDetailModel = dict[@"model"];
     [self.modelArray removeObjectAtIndex:[self.equipIndex integerValue]];
     [self.modelArray insertObject:dict[@"model"] atIndex:[self.equipIndex integerValue]];
-    
+    NSLog(@"!!!!!!!!!!!!!!!!");
     dispatch_async(dispatch_get_main_queue(), ^{
         [_tableView reloadData];
     });
