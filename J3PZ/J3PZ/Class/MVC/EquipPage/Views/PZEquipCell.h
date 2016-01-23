@@ -24,5 +24,8 @@
 //cell背景
 @property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
 
+@property(nonatomic,assign) NSInteger index;
+
+@property(nonatomic, assign)NSInteger selectedIndex;
 
 @end

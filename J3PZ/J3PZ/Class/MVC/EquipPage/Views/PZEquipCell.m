@@ -12,6 +12,8 @@
 #import "PZEquipListDropControl.h"
 @interface PZEquipCell ()
 
+
+
 @end
 
 
@@ -26,14 +28,19 @@
 
 }
 -(void)setEquipDetailModel:(PZEquipDetailModel *)equipDetailModel{
-    _equipDetailModel = equipDetailModel;
     
+    _equipDetailModel = equipDetailModel;
     NSURL * iconURL = [NSURL URLWithString:[NSString stringWithFormat:PZEquipIconURL,self.equipDetailModel.iconID]];
     [self.equipIcon sd_setImageWithURL:iconURL];
     self.EquipName.text = self.equipDetailModel.name;
+
     self.EquipName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]] ;
     self.EnhanceName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]];
-
+//    self.stone1.image = [UIImage imageNamed:@"stone_bk"];
+//    self.stone2.image = [UIImage imageNamed:@"stone_bk"];
+    
 }
+
+
 
 @end

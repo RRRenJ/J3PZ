@@ -23,8 +23,10 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSString * equipIconID;
 @property(nonatomic,strong)PZNetworkingManager * manager;
-@property(nonatomic,strong)PZEquipDetailModel * equipDetailModel;
-
+//@property(nonatomic,strong)PZEquipDetailModel * equipDetailModel;
+@property(nonatomic,strong)NSMutableArray * modelArray;
+@property(nonatomic,strong)NSMutableArray * imageArray;
+@property(nonatomic,strong)NSMutableArray * indexArray;
 
 @end
 
@@ -34,6 +36,35 @@
         _manager = [PZNetworkingManager manager];
     }
     return _manager;
+}
+
+-(NSMutableArray *)modelArray{
+    if (!_modelArray) {
+        _modelArray = [NSMutableArray array];
+        for (int index = 0; index< 12; index++) {
+            [_modelArray addObject:@"rrr"];
+        }
+    }
+    return _modelArray;
+}
+
+-(NSMutableArray *)imageArray{
+    if (!_imageArray) {
+        _imageArray = [NSMutableArray array];
+        NSArray * nameArray = @[@"头部",@"上衣",@"腰部",@"护腕",@"下装",@"鞋子",@"项链",@"腰坠",@"戒指",@"戒指",@"暗器",@"武器"];
+        for (int index = 0; index <nameArray.count; index ++) {
+            UIImage * image = [UIImage imageNamed:nameArray[index]];
+            [_imageArray addObject:image];
+        }
+        
+    }
+    return _imageArray;
+}
+-(NSMutableArray *)indexArray{
+    if (!_indexArray) {
+        _indexArray=[NSMutableArray array];
+    }
+    return _indexArray;
 }
 
 - (void)viewDidLoad {
@@ -47,6 +78,7 @@
     [super didReceiveMemoryWarning];
     
 }
+
 #pragma mark - createUI
 -(void)createTableView{
     
@@ -55,7 +87,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.backgroundColor = [UIColor clearColor];
-    
+    self.equipIndex = @"88";
     //注册CELL
     [self.tableView registerNib:[UINib nibWithNibName:@"PZEquipCell" bundle:nil] forCellReuseIdentifier:@"PZEquipCell"];
 
@@ -68,60 +100,21 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PZEquipCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PZEquipCell" forIndexPath:indexPath];
-    if (cell.equipIcon != nil) {
-        switch (indexPath.row) {
-            case 0:
-                cell.equipIcon.image = [UIImage imageNamed:@"头部"];
-                break;
-            case 1:
-                cell.equipIcon.image = [UIImage imageNamed:@"上衣"];
-                break;
-            case 2:
-                cell.equipIcon.image = [UIImage imageNamed:@"腰部"];
-                break;
-            case 3:
-                cell.equipIcon.image = [UIImage imageNamed:@"护腕"];
-                break;
-            case 11:
-                cell.equipIcon.image = [UIImage imageNamed:@"武器"];
-                break;
-            case 10:
-                cell.equipIcon.image = [UIImage imageNamed:@"暗器"];
-                break;
-            case 4:
-                cell.equipIcon.image = [UIImage imageNamed:@"下装"];
-                break;
-            case 5:
-                cell.equipIcon.image = [UIImage imageNamed:@"鞋子"];
-                break;
-            case 6:
-                cell.equipIcon.image = [UIImage imageNamed:@"项链"];
-                break;
-            case 7:
-                cell.equipIcon.image = [UIImage imageNamed:@"腰坠"];
-                break;
-            case 8:
-                cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
-                break;
-            case 9:
-                cell.equipIcon.image = [UIImage imageNamed:@"戒指"];
-                break;
-    //        case 12:
-    //            cell.equipIcon.image = [UIImage imageNamed:@"头部"];
-    //            break;
-    //            
-            default:
-                break;
-        }
+    NSString * indexString = [NSString stringWithFormat:@"%ld",indexPath.row];
+    
+    if ([self.indexArray indexOfObject:indexString] != NSNotFound) {
+        PZEquipDetailModel * equipDetailModel = self.modelArray[indexPath.row];
+        cell.equipDetailModel = equipDetailModel;
+    }else{
+        cell.equipIcon.image = self.imageArray[indexPath.row];
     }
+    
+    
     cell.EquipName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]] ;
     cell.EnhanceName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bk"]];
     cell.stone1.image = [UIImage imageNamed:@"stone_bk"];
     cell.stone2.image = [UIImage imageNamed:@"stone_bk"];
-    if (self.equipDetailModel.iconID != nil && indexPath.row == [self.equipIndex integerValue]) {
-        cell.equipDetailModel = self.equipDetailModel;
-
-    }
+    
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -129,7 +122,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _equipIndex = [NSString stringWithFormat:@"%ld",indexPath.row];
-    
+    [self.indexArray addObject:_equipIndex];
     PZEquipDetailViewController * equipDetailVC = [[PZEquipDetailViewController alloc]init];
     equipDetailVC.xinfa = _xfDetail;
     equipDetailVC.pos = _equipIndex;
@@ -181,8 +174,10 @@
 
 -(void)sendDetailModel:(NSNotification *)notif{
     NSDictionary * dict = notif.userInfo;
-    self.equipDetailModel = dict[@"model"];
-    NSLog(@".......");
+//    self.equipDetailModel = dict[@"model"];
+    [self.modelArray removeObjectAtIndex:[self.equipIndex integerValue]];
+    [self.modelArray insertObject:dict[@"model"] atIndex:[self.equipIndex integerValue]];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [_tableView reloadData];
     });
